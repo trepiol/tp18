@@ -19,3 +19,12 @@ dist/backend-image.tar
 
 .coverage
 .trivy-sca/
+
+# TP18 private scanner outputs, validation tooling and evidence
+.security-private/
+.security-reports/
+.security-bundles/
+.security-collection/
+.security-tools/
+.validation/
+dist/

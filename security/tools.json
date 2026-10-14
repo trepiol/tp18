@@ -1,0 +1,10 @@
+{
+  "gitleaks": "8.30.0",
+  "trivy": "0.74.0",
+  "semgrep": "1.177.0",
+  "helm": "v3.18.4",
+  "zap_image": "ghcr.io/zaproxy/zaproxy@sha256:781a2bdaea47324e7bab583e2263f21d257b0aee61ed51521a5be45f5f5081ef",
+  "threagile_image": "threagile/threagile@sha256:abb9eccb111a2059c4876759a24245db02ad295b1608d3a4634ec250f38d9640",
+  "postgres_image": "postgres@sha256:742f40ea20b9ff2ff31db5458d127452988a2164df9e17441e191f3b72252193",
+  "defectdojo_parser_commit": "7448b33e1232b207af76f0e414e19e0ef2d6bfd7"
+}

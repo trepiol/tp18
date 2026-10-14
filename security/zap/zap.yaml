@@ -1,0 +1,42 @@
+---
+# Adapted from trepiol/tp13c guia-13/zap.yaml. Target is fixed to isolated CI backend.
+env:
+  contexts:
+    - name: notes-tp18
+      urls: ["http://backend:5000/api/notes"]
+      includePaths: ['http://backend:5000/.*']
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: false
+jobs:
+  - type: requestor
+    requests:
+      - url: http://backend:5000/health
+        method: GET
+        responseCode: 200
+      - url: http://backend:5000/api/notes
+        method: GET
+        responseCode: 200
+  - type: spider
+    parameters:
+      context: notes-tp18
+      url: http://backend:5000/api/notes
+      maxDuration: 1
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 3
+  - type: activeScan
+    parameters:
+      context: notes-tp18
+      policy: Default Policy
+      maxScanDurationInMins: 3
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 3
+  - type: report
+    parameters:
+      template: traditional-json
+      reportDir: /zap/wrk/reports
+      reportFile: zap-report.json
+      reportTitle: Notes TP18 isolated DAST

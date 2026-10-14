@@ -1,4 +1,4 @@
-name: CI/CD Pipeline — TP16 Trivy Security Gate
+name: TP18 — Build Once y cinco auditorías
 
 on:
   push:
@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  security-events: write
 
 env:
   IMAGE_NAME: tp16-notes-backend
@@ -94,8 +95,14 @@ jobs:
           helm template tp16 devops-tp12/chart -f devops-tp12/values-prod.yaml > manifests-rendered-prod.yaml
           python3 -c "import yaml; p='manifests-rendered-prod.yaml'; d=list(yaml.safe_load_all(open(p))); assert d and all(x is None or isinstance(x,dict) for x in d); print(f'YAML válido: {sum(x is not None for x in d)} documentos')"
       - name: Preparar inventario SCA de producción y desarrollo
-        run: bash scripts/preparar-trivy-sca.sh
+        id: prepare
+        run: |
+          bash scripts/preparar-trivy-sca.sh
+          mkdir -p .security-private/trivy-high
+          chmod 700 .security-private/trivy-high
+          cp manifests-rendered-prod.yaml .security-private/trivy-high/manifests-rendered-prod.yaml
       - name: Trivy SCA HIGH/CRITICAL
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8
         with:
           version: ${{ env.TRIVY_VERSION }}
@@ -103,11 +110,11 @@ jobs:
           scan-ref: .trivy-sca
           scanners: vuln,secret
           severity: HIGH,CRITICAL
-          format: table
+          format: json
           exit-code: '1'
-          output: trivy-fs-blocking.txt
+          output: .security-private/trivy-high/trivy-fs-blocking.json
       - name: Trivy secretos en código backend
-        if: always()
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8
         with:
           version: ${{ env.TRIVY_VERSION }}
@@ -115,11 +122,11 @@ jobs:
           scan-ref: devops-tp12/app/backend
           scanners: secret
           severity: HIGH,CRITICAL
-          format: table
+          format: json
           exit-code: '1'
-          output: trivy-secrets-blocking.txt
+          output: .security-private/trivy-high/trivy-secrets-blocking.json
       - name: Trivy Container HIGH/CRITICAL
-        if: always()
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8
         with:
           version: ${{ env.TRIVY_VERSION }}
@@ -127,20 +134,20 @@ jobs:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
           scanners: vuln,secret
           severity: HIGH,CRITICAL
-          format: table
+          format: json
           exit-code: '1'
-          output: trivy-image-blocking.txt
+          output: .security-private/trivy-high/trivy-image-blocking.json
       - name: Trivy IaC HIGH/CRITICAL sobre YAML renderizado
-        if: always() && hashFiles('manifests-rendered-prod.yaml') != ''
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8
         with:
           version: ${{ env.TRIVY_VERSION }}
           scan-type: config
           scan-ref: manifests-rendered-prod.yaml
           severity: HIGH,CRITICAL
-          format: table
+          format: json
           exit-code: '1'
-          output: trivy-config-blocking.txt
+          output: .security-private/trivy-high/trivy-config-blocking.json
       - name: Resumen del Andon Cord
         if: always()
         shell: bash
@@ -152,18 +159,20 @@ jobs:
             echo "HIGH/CRITICAL bloquean SCA, imagen e IaC con exit code 1."
             echo "IaC: manifests-rendered-prod.yaml (Render First)."
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Validar y sanitizar JSON de Trivy
+        id: reports
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
+        run: >-
+          python3 scripts/security_report.py prepare trivy .security-private/trivy-high .security-reports/trivy-high
+          --version 0.74.0 --files trivy-fs-blocking.json trivy-secrets-blocking.json trivy-image-blocking.json trivy-config-blocking.json manifests-rendered-prod.yaml
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ always() && steps.reports.outcome == 'success' }}
         with:
-          name: tp16-andon-evidence-${{ github.sha }}
-          path: |
-            trivy-fs-blocking.txt
-            trivy-secrets-blocking.txt
-            trivy-image-blocking.txt
-            trivy-config-blocking.txt
-            manifests-rendered-prod.yaml
-          if-no-files-found: ignore
-          retention-days: 7
+          name: tp18-trivy-high-${{ github.sha }}
+          path: .security-reports/trivy-high/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
 
   trivy-audit-report:
     name: Fase 2B — Auditoría Trivy LOW/MEDIUM
@@ -185,8 +194,14 @@ jobs:
       - name: Renderizar manifiestos de producción
         run: helm template tp16 devops-tp12/chart -f devops-tp12/values-prod.yaml > manifests-rendered-prod.yaml
       - name: Preparar inventario SCA de producción y desarrollo
-        run: bash scripts/preparar-trivy-sca.sh
+        id: prepare
+        run: |
+          bash scripts/preparar-trivy-sca.sh
+          mkdir -p .security-private/trivy-low
+          chmod 700 .security-private/trivy-low
+          cp manifests-rendered-prod.yaml .security-private/trivy-low/manifests-rendered-prod.yaml
       - name: Escaneo informativo SCA
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8
         with:
           version: ${{ env.TRIVY_VERSION }}
@@ -195,9 +210,10 @@ jobs:
           scanners: vuln,secret
           severity: LOW,MEDIUM
           format: json
-          output: trivy-fs-report.json
+          output: .security-private/trivy-low/trivy-fs-report.json
           exit-code: '0'
       - name: Reporte de secretos del backend
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8
         with:
           version: ${{ env.TRIVY_VERSION }}
@@ -205,9 +221,10 @@ jobs:
           scan-ref: devops-tp12/app/backend
           scanners: secret
           format: json
-          output: trivy-secrets-report.json
+          output: .security-private/trivy-low/trivy-secrets-report.json
           exit-code: '0'
       - name: Escaneo informativo de imagen
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8
         with:
           version: ${{ env.TRIVY_VERSION }}
@@ -216,9 +233,10 @@ jobs:
           scanners: vuln,secret
           severity: LOW,MEDIUM
           format: json
-          output: trivy-image-report.json
+          output: .security-private/trivy-low/trivy-image-report.json
           exit-code: '0'
       - name: Escaneo informativo IaC
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
         uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8
         with:
           version: ${{ env.TRIVY_VERSION }}
@@ -226,25 +244,27 @@ jobs:
           scan-ref: manifests-rendered-prod.yaml
           severity: LOW,MEDIUM
           format: json
-          output: trivy-config-report.json
+          output: .security-private/trivy-low/trivy-config-report.json
           exit-code: '0'
       - name: Resumen informativo
         if: always()
         run: |
           echo "### Reporte Trivy LOW/MEDIUM" >> "$GITHUB_STEP_SUMMARY"
           echo "Ver los resultados informativos en el artifact JSON." >> "$GITHUB_STEP_SUMMARY"
+      - name: Validar y sanitizar JSON de Trivy
+        id: reports
+        if: ${{ always() && steps.prepare.outcome == 'success' }}
+        run: >-
+          python3 scripts/security_report.py prepare trivy .security-private/trivy-low .security-reports/trivy-low
+          --version 0.74.0 --files trivy-fs-report.json trivy-secrets-report.json trivy-image-report.json trivy-config-report.json manifests-rendered-prod.yaml
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ always() && steps.reports.outcome == 'success' }}
         with:
-          name: tp16-trivy-audit-${{ github.sha }}
-          path: |
-            trivy-fs-report.json
-            trivy-secrets-report.json
-            trivy-image-report.json
-            trivy-config-report.json
-            manifests-rendered-prod.yaml
-          if-no-files-found: ignore
-          retention-days: 7
+          name: tp18-trivy-low-${{ github.sha }}
+          path: .security-reports/trivy-low/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
 
   gitleaks-andon-cord:
     name: TP17 — Andon Cord Gitleaks
@@ -294,7 +314,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
   gitleaks-audit-report:
-    name: TP17 — Auditoría histórica Gitleaks
+    name: TP18 — Auditoría histórica Gitleaks
     runs-on: ubuntu-24.04
     needs: [gitleaks-andon-cord]
     if: ${{ always() }}
@@ -305,103 +325,122 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - name: Instalar Gitleaks CLI con versión y checksum verificados
-        shell: bash
-        run: |
-          set -euo pipefail
-          tool_dir="$RUNNER_TEMP/tp17-gitleaks-cli"
-          mkdir -p "$tool_dir"
-          cd "$tool_dir"
-          archive="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
-          checksums="gitleaks_${GITLEAKS_VERSION}_checksums.txt"
-          release="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}"
-          curl --fail --silent --show-error --location --retry 3 \
-            "$release/$archive" -o "$archive"
-          curl --fail --silent --show-error --location --retry 3 \
-            "$release/$checksums" -o "$checksums"
-          sha256sum --check --ignore-missing "$checksums"
-          tar -xzf "$archive" gitleaks
-          chmod 755 gitleaks
-          test "$(./gitleaks version)" = "$GITLEAKS_VERSION"
-          echo "$tool_dir" >> "$GITHUB_PATH"
-      - name: Auditar historial y generar JSON sin valores de secretos
+      - name: Instalar CLI con checksum verificado
+        run: bash scripts/install-security-cli.sh gitleaks
+      - name: Auditar historial y preparar JSON compatible sin secretos
         id: audit
-        shell: bash
-        run: |
-          set -euo pipefail
-          test "$(gitleaks version)" = "$GITLEAKS_VERSION"
-          test -s "$GITLEAKS_CONFIG"
-          report_dir="$RUNNER_TEMP/tp17-gitleaks-audit"
-          mkdir -p "$report_dir"
-          trap 'rm -f "$report_dir/raw.json" "$report_dir/scan.log"' EXIT
-          # El código 1 también se usa en errores operativos de la CLI.
-          # Reservamos 10 para findings y lo normalizamos a 1 informativo.
-          if gitleaks git . --config "$GITLEAKS_CONFIG" --redact=100 \
-            --log-opts=--all --exit-code=10 --no-banner \
-            --report-format=json --report-path="$report_dir/raw.json" \
-            > "$report_dir/scan.log" 2>&1; then
-            status=0
-          else
-            status=$?
-          fi
-          case "$status" in
-            0) findings_status=0 ;;
-            10) findings_status=1 ;;
-            *)
-              echo "::error::Gitleaks no completó la auditoría (código $status)."
-              exit "$status"
-              ;;
-          esac
-          export TP17_REPORT_DIR="$report_dir"
-          export TP17_FINDINGS_STATUS="$findings_status"
-          python3 - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-
-          report_dir = Path(os.environ["TP17_REPORT_DIR"])
-          findings = json.loads((report_dir / "raw.json").read_text())
-          if not isinstance(findings, list) or any(
-              not isinstance(finding, dict) for finding in findings
-          ):
-              raise ValueError("Reporte Gitleaks inválido")
-          status = int(os.environ["TP17_FINDINGS_STATUS"])
-          if bool(findings) != bool(status):
-              raise ValueError("Código de findings inconsistente con el reporte")
-          # --redact oculta Secret, pero Message/Fragment pueden incluir texto.
-          # Publicamos sólo ubicaciones/reglas; ningún texto de código o commit.
-          fields = (
-              "RuleID", "File", "StartLine", "EndLine", "StartColumn",
-              "EndColumn", "Commit", "Fingerprint",
-          )
-          safe_findings = [
-              {**{key: finding[key] for key in fields if key in finding},
-               "Secret": "REDACTED"}
-              for finding in findings
-          ]
-          (report_dir / "gitleaks-report.json").write_text(
-              json.dumps(safe_findings, indent=2) + "\n"
-          )
-          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
-              summary.write(
-                  "### TP17 — Auditoría histórica Gitleaks\n\n"
-                  f"Hallazgos no exceptuados: **{len(findings)}**.\n\n"
-                  f"Código de hallazgos: **{status}** (informativo).\n"
-                  "El Andon Gitleaks controla el bloqueo del deploy.\n"
-              )
-          print(f"Auditoría completada: {len(findings)} hallazgos no exceptuados.")
-          PY
-      - name: Publicar reporte Gitleaks redactado
+        run: bash scripts/audit-gitleaks.sh
+      - uses: actions/upload-artifact@v4
         if: ${{ always() && steps.audit.outcome == 'success' }}
-        uses: actions/upload-artifact@v4
         with:
-          name: tp17-gitleaks-audit-${{ github.sha }}
-          path: ${{ runner.temp }}/tp17-gitleaks-audit/gitleaks-report.json
+          name: tp18-gitleaks-${{ github.sha }}
+          path: .security-reports/gitleaks/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
+
+
+  semgrep:
+    name: Fase 2 — Semgrep
+    uses: ./.github/workflows/semgrep.yml
+    permissions:
+      contents: read
+      security-events: write
+
+  zap-audit:
+    name: Fase 2 — OWASP ZAP aislado
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    needs: [build-and-package]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: tp16-backend-image-${{ github.sha }}
+          path: dist/
+      - name: Restaurar exactamente la imagen Build Once
+        run: |
+          sha256sum -c dist/backend-image.tar.sha256
+          docker load -i dist/backend-image.tar
+      - name: Descargar imágenes auxiliares fijadas
+        run: |
+          python3 - <<'PY'
+          import json,subprocess
+          tools=json.load(open("security/tools.json"))
+          for key in ("zap_image", "postgres_image"):
+              subprocess.run(["docker", "pull", tools[key]], check=True)
+          PY
+      - name: Escanear sólo el entorno efímero interno
+        id: audit
+        run: bash scripts/audit-zap.sh
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && steps.audit.outcome == 'success' }}
+        with:
+          name: tp18-zap-${{ github.sha }}
+          path: .security-reports/zap/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
+
+  threat-modeling:
+    name: Fase 2 — Threagile
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar Threagile fijado
+        run: |
+          image=$(python3 -c 'import json; print(json.load(open("security/tools.json"))["threagile_image"])')
+          docker pull "$image"
+      - name: Analizar modelo y validar risks.json
+        id: audit
+        run: bash scripts/audit-threagile.sh
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && steps.audit.outcome == 'success' }}
+        with:
+          name: tp18-threagile-${{ github.sha }}
+          path: .security-reports/threagile/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
+
+  collect-security-reports:
+    name: Fase 3 preparada — Recopilar evidencias sin DefectDojo
+    runs-on: ubuntu-24.04
+    needs:
+      - build-and-package
+      - semgrep
+      - zap-audit
+      - threat-modeling
+      - trivy-andon-cord
+      - trivy-audit-report
+      - gitleaks-andon-cord
+      - gitleaks-audit-report
+    if: ${{ always() }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar sólo artifacts de esta ejecución y SHA
+        uses: actions/download-artifact@v4
+        with:
+          pattern: tp18-*-${{ github.sha }}
+          path: .security-bundles/
+          merge-multiple: false
+      - name: Validar identidad, checksums, formatos y reportes ausentes
+        if: ${{ always() }}
+        env:
+          TP18_JOB_RESULTS: ${{ toJSON(needs) }}
+        run: python3 scripts/security_report.py collect .security-bundles .security-collection
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: tp18-collection-${{ github.sha }}
+          path: .security-collection/
+          include-hidden-files: true
           retention-days: 14
           if-no-files-found: error
 
   deploy-k8s-helm:
-    name: Fase 3 — Publicación y deploy Helm
+    name: Fase 4 — Publicación y deploy Helm
     runs-on: ubuntu-24.04
     needs:
       - build-and-package
@@ -409,13 +448,21 @@ jobs:
       - trivy-audit-report
       - gitleaks-andon-cord
       - gitleaks-audit-report
+      - semgrep
+      - zap-audit
+      - threat-modeling
+      - collect-security-reports
     if: >-
       ${{ github.ref == 'refs/heads/main' &&
           needs.build-and-package.result == 'success' &&
           needs.trivy-andon-cord.result == 'success' &&
           needs.trivy-audit-report.result == 'success' &&
           needs.gitleaks-andon-cord.result == 'success' &&
-          needs.gitleaks-audit-report.result == 'success' }}
+          needs.gitleaks-audit-report.result == 'success' &&
+          needs.semgrep.result == 'success' &&
+          needs.zap-audit.result == 'success' &&
+          needs.threat-modeling.result == 'success' &&
+          needs.collect-security-reports.result == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4

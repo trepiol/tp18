@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(git rev-parse --show-toplevel)"
+test "$(gitleaks version)" = "8.30.0"
+umask 077
+log="$(mktemp "$(git rev-parse --git-dir)/tp18-hook.XXXXXX")"
+trap 'rm -f -- "$log"' EXIT
+if gitleaks git --pre-commit --staged --config .gitleaks.toml \
+  --redact=100 --no-banner --exit-code=1 . >"$log" 2>&1; then
+  echo "[OK] Gitleaks: índice staged validado."
+else
+  status=$?
+  echo "[ERROR] Commit bloqueado por findings o error operativo de Gitleaks (código $status)." >&2
+  exit "$status"
+fi
