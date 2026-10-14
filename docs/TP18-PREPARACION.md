@@ -15,7 +15,7 @@ No se instala ni integra DefectDojo en esta fase.
 | Helm | Lint pasa; YAML de producción válido, reproducible e igual al heredado |
 | Threagile | risks.json real: 42 riesgos; PDF y dos diagramas; parser devuelve 42; job CI exitoso |
 | Semgrep | 20 findings reales; JSON/SARIF sanitizados; parser devuelve 20; guard ERROR y job CI pasan |
-| ZAP 2.17.0 | Ejecución local real: 5 alertas, JSON/XML/HTML sanitizados; parser XML devuelve 5 |
+| ZAP 2.17.0 | Local y CI pasan: 5 alertas, JSON/XML/HTML sanitizados; parser XML devuelve 5 |
 | Trivy HIGH/CRITICAL | CI: 61 findings (SCA 3, imagen 47, IaC 11, secretos 0); Andon rojo y artifact publicado |
 | Trivy LOW/MEDIUM | CI: 178 findings (SCA 6, imagen 130, IaC 42, secretos 0); auditoría exitosa |
 | Workflows | actionlint 1.7.12; YAML y Bash válidos; dependencias y condiciones comprobadas |
@@ -122,3 +122,52 @@ GITHUB_SHA="$(git rev-parse HEAD)" GITHUB_RUN_ID="$tp18_run_id" \
 El colector termina en cero sólo con seis bundles válidos del SHA/run pedidos.
 Ese cero valida evidencias, no convierte el Andon rojo en verde. La plataforma
 DefectDojo sigue pendiente aunque la recopilación pase.
+
+## Cierre comprobado en GitHub Actions
+
+Implementación validada en [run 38511623891](https://github.com/trepiol/tp18/actions/runs/38511623891),
+SHA **16ce3ff70606de40379fbaab20fa67479f5eabf2**.
+
+- Tests y build exitosos; el backend se construye una sola vez.
+- ZAP exitoso: 5 alertas, salida nativa 0 y plan completo.
+- Threagile exitoso: 42 riesgos; PDF y ambos diagramas presentes.
+- Semgrep exitoso: 20 findings; guard ERROR y carga SARIF pasan.
+- Gitleaks Andon/auditoría exitosos: 0 no exceptuados.
+- Trivy Andon rojo: 61 HIGH/CRITICAL; su artifact se publica.
+- Auditoría Trivy exitosa: 178 LOW/MEDIUM.
+- Colector exitoso: 6/6 bundles, SHA/run y hashes válidos, sin reportes ausentes.
+- Deploy omitido por el Andon rojo; lint TP06 sigue fallando como antecedente.
+- Parsers oficiales leen todos los JSON correspondientes y el XML ZAP.
+- Un clon nuevo desde GitHub conservó historial, instaló el hook y pasó el
+  verificador Gitleaks con árbol limpio.
+
+El arranque de ZAP quedó operativo al conservar el usuario zap (UID 1000) de
+la imagen, con acceso verificado a sus directorios y al volumen privado. El
+diagnóstico de CI registra salida 0 y los checks de arranque exitosos. Los
+intentos anteriores permanecen disponibles, incluidos sus índices 5/6 que
+identifican el artifact ausente; no se borraron ni reemplazaron evidencias.
+
+Artifacts reales de esa ejecución (todos con el SHA indicado):
+
+| Artifact | Contenido | Retención |
+|---|---|---|
+| tp16-backend-image-SHA | Tarball Docker y checksum | 1 día |
+| tp18-gitleaks-SHA | JSON seguro y manifest | 14 días |
+| tp18-semgrep-SHA | JSON, SARIF y manifest | 14 días |
+| tp18-threagile-SHA | risks.json, PDF, dos PNG y manifest | 14 días |
+| tp18-trivy-high-SHA | Cuatro JSON, YAML renderizado y manifest | 14 días |
+| tp18-trivy-low-SHA | Cuatro JSON, YAML renderizado y manifest | 14 días |
+| tp18-zap-SHA | JSON, XML, HTML y manifest | 14 días |
+| tp18-zap-diagnostic-SHA | Metadatos operativos, sin logs crudos | 14 días |
+| tp18-collection-SHA | Índice de evidencia con estados de jobs | 14 días |
+
+Las revisiones posteriores de documentación vuelven a ejecutar el pipeline y
+producen sus propios artifacts: el enlace del workflow y el comando de descarga
+anterior permiten comprobar el SHA más reciente. Esta ejecución es evidencia
+de referencia, no una dependencia permanente de runs históricos.
+
+Estado final de la preparación: implementado y probado. No se instaló
+DefectDojo ni se hicieron importaciones. Siguen pendientes la instancia, su
+configuración, la validación API/ORM de esa versión y los Secrets de release.
+La cobertura DAST sigue siendo backend; el aviso PartialParsing de Semgrep en
+Bash se conserva como limitación. No se remediaron vulnerabilidades.
