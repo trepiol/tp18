@@ -374,7 +374,7 @@ jobs:
         id: audit
         run: bash scripts/audit-zap.sh
       - uses: actions/upload-artifact@v4
-        if: ${{ always() && steps.audit.outcome == 'success' }}
+        if: ${{ always() && hashFiles('.security-reports/zap/manifest.json') != '' }}
         with:
           name: tp18-zap-${{ github.sha }}
           path: .security-reports/zap/

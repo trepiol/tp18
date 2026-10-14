@@ -27,6 +27,13 @@ diagnostic={
     "exit_code":int(sys.argv[1]), "elapsed_seconds":int(sys.argv[2]),
     "phase":sys.argv[4],
     "timeout":int(sys.argv[1])==124,
+    "plan_succeeded":"Automation plan succeeded!" in log,
+    "raw_report_exists":(log_path.parent/"zap-report.json").is_file(),
+    "jobs":{
+        name:{"started":log.count("Job "+name+" started"),
+              "finished":log.count("Job "+name+" finished")}
+        for name in ("requestor","spider","passiveScan-wait","activeScan","report")
+    },
     "log_indicators":{
         "errors":log.count("ERROR"), "warnings":log.count("WARN"),
         "dns_errors":log.count("UnknownHostException"),
@@ -39,8 +46,8 @@ Path(".security-reports/diagnostics/zap.json").write_text(json.dumps(diagnostic,
 PY
   docker logs "$backend" >"$private/backend.log" 2>&1 || :
   docker logs "$db" >"$private/postgres.log" 2>&1 || :
-  docker rm -f "$scanner" "$backend" "$db" >/dev/null 2>&1 || :
-  docker network rm "$network" >/dev/null 2>&1 || :
+  timeout --kill-after=3 15 docker rm -f "$scanner" "$backend" "$db" >/dev/null 2>&1 || :
+  timeout --kill-after=3 15 docker network rm "$network" >/dev/null 2>&1 || :
 }
 trap cleanup EXIT
 docker network create --internal "$network" >/dev/null
@@ -80,22 +87,45 @@ timeout 30 docker run --rm --network "$network" --add-host "backend:$backend_ip"
   'import json,urllib.request; d=json.load(urllib.request.urlopen("http://backend:5000/health",timeout=10)); assert d["db"]=="connected"' \
   >"$private/preflight.log" 2>&1
 echo "ZAP: backend accesible desde la imagen del escáner; iniciando Automation Framework."
-# Keep Java's home writable for arbitrary runner UID and bound process runtime.
+# Inspect native container state instead of waiting on the attached Docker client.
 phase=automation
-if timeout 720 docker run --rm --name "$scanner" --network "$network" \
+docker run --detach --name "$scanner" --network "$network" \
   --add-host "backend:$backend_ip" --memory 3g --cpus 2 \
   --user "$(id -u):$(id -g)" -e JAVA_TOOL_OPTIONS=-Duser.home=/zap/wrk/reports \
   -v "$PWD/security/zap/zap.yaml:/zap/wrk/plan.yaml:ro" \
   -v "$private:/zap/wrk/reports" "$zap_image" \
   zap.sh -Xmx1536m -dir /zap/wrk/reports/.zap -cmd -silent -port 8091 \
-  -autorun /zap/wrk/plan.yaml >"$private/scan.log" 2>&1; then
-  echo "ZAP: Automation Framework finalizado."
-else
-  status=$?
-  echo "ZAP: fallo operativo del proceso (código $status); diagnóstico seguro disponible." >&2
+  -autorun /zap/wrk/plan.yaml >/dev/null
+deadline=$((SECONDS + 720))
+status=124
+while (( SECONDS < deadline )); do
+  snapshot="$(timeout --kill-after=3 15 docker inspect --format '{{.State.Status}} {{.State.ExitCode}}' "$scanner")"
+  read -r container_state container_exit <<< "$snapshot"
+  if [[ "$container_state" == exited || "$container_state" == dead ]]; then
+    status="$container_exit"
+    break
+  fi
+  sleep 3
+done
+timeout --kill-after=3 15 docker logs "$scanner" >"$private/scan.log" 2>&1
+plan_succeeded="$(python3 - "$private/scan.log" <<'PY'
+import sys
+from pathlib import Path
+print(int("Automation plan succeeded!" in Path(sys.argv[1]).read_text(errors="replace")))
+PY
+)"
+# A completed plan can have a genuine report even if process shutdown fails.
+# Preserve that evidence, native exit status and deployment block separately.
+if [[ "$status" == 0 || "$plan_succeeded" == 1 ]]; then
+  phase=report-validation
+  export TP18_ZAP_PROCESS_EXIT_CODE="$status"
+  python3 scripts/security_report.py prepare zap "$private" .security-reports/zap \
+    --version 2.17.0 --files zap-report.json
+fi
+if [[ "$status" != 0 ]]; then
+  phase=process-exit
+  echo "ZAP: error operativo del proceso (código $status); el job conserva su fallo." >&2
   exit "$status"
 fi
-phase=report-validation
-python3 scripts/security_report.py prepare zap "$private" .security-reports/zap \
-  --version 2.17.0 --files zap-report.json
 phase=completed
+echo "ZAP: Automation Framework y proceso finalizados correctamente."

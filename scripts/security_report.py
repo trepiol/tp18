@@ -262,6 +262,9 @@ def prepare(args):
         "execution": "completed", "findings": count, "warnings": warning_count,
         "reports": entries,
     }
+    if args.tool == "zap":
+        manifest["process_exit_code"] = int(os.environ.get("TP18_ZAP_PROCESS_EXIT_CODE", "0"))
+        manifest["analysis_plan_completed"] = True
     (destination / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"{args.tool}: validated {len(entries)} reports; findings={count}")
 

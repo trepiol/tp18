@@ -103,6 +103,12 @@ Esta cobertura es del backend. **No cubre frontend, TLS/Ingress ni el login de
 TP13B:** la app actual no implementa sus endpoints de autenticación/cookies.
 Se consultó TP13B y no se copió una autenticación que no existe en TP12.
 
+Si el plan ZAP termina y genera un reporte válido pero su proceso no cierra,
+el reporte se conserva con process_exit_code explícito. El job mantiene ese
+código no cero y bloquea deploy. Se comprueba el estado del contenedor con un
+límite de tiempo; no se transforma un timeout en un análisis exitoso. El
+diagnóstico distingue plan terminado, archivo presente y salida del proceso.
+
 ## Requisitos y pruebas locales
 
 Bash, Git, Docker, Python 3.11+ con PyYAML, Helm 3.18.4 y Gitleaks 8.30.0.

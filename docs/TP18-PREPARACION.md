@@ -48,6 +48,16 @@ en su índice y jobs, incluso cuando el workflow global queda rojo por un gate.
 - ZAP intentaba telemetría/actualizaciones sin salida de red: se agrega
   -silent, sin desactivar spiders, análisis pasivo o activo.
 
+## Diagnóstico adicional del runner
+
+Las dos primeras ejecuciones agotaron el límite de ZAP. La tercera ejecución
+registró código 124, fase automation, 726 segundos y cero indicadores de DNS,
+permisos o memoria en stdout. No se declara una causa de fondo no comprobada.
+El control se adapta a inspeccionar el estado nativo del contenedor, acotar su
+duración y publicar sólo diagnóstico seguro. Un plan realmente finalizado y
+su reporte válido pueden conservarse aunque falle el cierre del proceso;
+ese fallo continúa visible en el manifest y el job y bloquea deploy.
+
 ## Alcance de compatibilidad
 
 Lectores oficiales fijados en
