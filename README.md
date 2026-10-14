@@ -33,7 +33,9 @@ Trivy. ZAP requiere build exitoso. El lint histórico TP06 permanece independien
 
 Los seis bundles de reportes tienen retención de **14 días**. Cada uno incluye
 `manifest.json` con herramienta, versión, SHA, run, conteos, warnings y hashes.
-El índice es `tp18-collection-<SHA>`. El artifact de imagen heredado
+El índice es `tp18-collection-<SHA>`.
+ZAP publica además un diagnóstico operativo con código, duración y contadores
+seguros de errores; no sustituye el reporte ni incluye logs crudos. El artifact de imagen heredado
 `tp16-backend-image-<SHA>` mantiene retención de un día.
 
 Los JSON Trivy conservan findings, severidades e identidad de la imagen;
@@ -90,6 +92,10 @@ actual. Usa PostgreSQL efímero y la imagen del build en una red Docker
 **interna, sin puertos publicados** ni salida hacia objetivos externos.
 La contraseña de esa base se genera en memoria y no se versiona ni publica.
 Heap, memoria y CPU del escáner están acotados; se limpia el entorno al salir.
+Se verifica la ruta al backend desde la propia imagen del escáner y se fija
+su resolución dentro de la red privada. Java usa un home escribible también
+para el UID 1001 del runner. Un timeout de proceso preserva diagnóstico y
+limpieza sin convertir un fallo en éxito.
 Se usa `-silent` para evitar telemetría y comprobaciones de actualización no
 solicitadas ([opción oficial ZAP](https://www.zaproxy.org/docs/desktop/cmdline/)).
 

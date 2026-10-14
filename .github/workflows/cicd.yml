@@ -382,6 +382,16 @@ jobs:
           retention-days: 14
           if-no-files-found: error
 
+      - name: Publicar diagnóstico operativo seguro de ZAP
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: tp18-zap-diagnostic-${{ github.sha }}
+          path: .security-reports/diagnostics/zap.json
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: warn
+
   threat-modeling:
     name: Fase 2 — Threagile
     runs-on: ubuntu-24.04
