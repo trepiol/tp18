@@ -46,6 +46,6 @@ fi
 docker run --rm --name "$scanner" --network "$network" --memory 3g --cpus 2 --user "$(id -u):$(id -g)" \
   -v "$PWD/security/zap/zap.yaml:/zap/wrk/plan.yaml:ro" \
   -v "$private:/zap/wrk/reports" "$zap_image" \
-  zap.sh -Xmx1536m -dir /zap/wrk/reports/.zap -cmd -port 8091 -autorun /zap/wrk/plan.yaml >"$private/scan.log" 2>&1
+  zap.sh -Xmx1536m -dir /zap/wrk/reports/.zap -cmd -silent -port 8091 -autorun /zap/wrk/plan.yaml >"$private/scan.log" 2>&1
 python3 scripts/security_report.py prepare zap "$private" .security-reports/zap \
-  --version pinned-image --files zap-report.json
+  --version 2.17.0 --files zap-report.json

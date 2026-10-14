@@ -27,6 +27,16 @@ class ReportTests(unittest.TestCase):
         self.assertNotIn("must not survive", json.dumps(safe))
         self.assertNotIn("Author", safe[0])
 
+    def test_gitleaks_distinguishes_two_redacted_ranges_on_same_line(self):
+        base = {"RuleID": "test-rule", "File": "fixture.txt", "StartLine": 3, "Commit": "a" * 40}
+        safe, count = module.transform("gitleaks", [
+            {**base, "StartColumn": 1, "EndColumn": 10},
+            {**base, "StartColumn": 20, "EndColumn": 30},
+        ])
+        self.assertEqual(count, 2)
+        self.assertNotEqual(safe[0]["Description"], safe[1]["Description"])
+        self.assertEqual(safe[1]["StartColumn"], 20)
+
     def test_gitleaks_rejects_null_and_missing_locations(self):
         for data in (None, [{}], {}):
             with self.assertRaises((ValueError, KeyError)):
@@ -51,9 +61,12 @@ class ReportTests(unittest.TestCase):
         self.assertNotIn("untrusted source text", json.dumps(safe))
 
     def test_trivy_preserves_counts_and_redacts_context(self):
-        raw = {"SchemaVersion": 2, "ArtifactName": "test", "Results": [{
+        raw = {"SchemaVersion": 2, "ArtifactName": "test",
+               "Metadata": {"ImageConfig": {"Env": ["private content"]}, "ImageID": "test-image"},
+               "Results": [{
             "Secrets": [{"Match": "private content", "Code": {"Lines": []}}],
-            "Misconfigurations": [{"CauseMetadata": {"Code": {"Lines": ["private content"]}}}],
+            "Misconfigurations": [{"Message": "private content", "Traces": ["private content"],
+                                   "CauseMetadata": {"Code": {"Lines": ["private content"]}}}],
             "Vulnerabilities": [{"VulnerabilityID": "CVE-0000-0000"}],
         }]}
         safe, count = module.transform("trivy", raw)
@@ -80,6 +93,23 @@ class ReportTests(unittest.TestCase):
             path = Path(directory) / "zap.xml"
             module.zap_xml(safe, path)
             self.assertEqual(len(ET.parse(path).findall("site/alerts/alertitem")), 1)
+
+    def test_prepare_rejects_unexpected_zap_version(self):
+        import argparse
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "source"
+            source.mkdir()
+            (source / "zap-report.json").write_text(json.dumps({
+                "@version": "2.17.0", "site": [],
+            }))
+            args = argparse.Namespace(
+                tool="zap", source=str(source), destination=str(root / "out"),
+                version="unexpected", files=["zap-report.json"],
+            )
+            with self.assertRaises(ValueError):
+                module.prepare(args)
+            self.assertFalse((root / "out/manifest.json").exists())
 
     def test_collector_accepts_complete_run_and_rejects_hash_sha_and_run(self):
         import argparse

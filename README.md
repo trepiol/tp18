@@ -36,6 +36,10 @@ Los seis bundles de reportes tienen retención de **14 días**. Cada uno incluye
 El índice es `tp18-collection-<SHA>`. El artifact de imagen heredado
 `tp16-backend-image-<SHA>` mantiene retención de un día.
 
+Los JSON Trivy conservan findings, severidades e identidad de la imagen;
+se retiran snippets, mensajes interpolados y configuración cruda de imagen
+(variables, labels e historial de build) que podrían exponer valores sensibles.
+
 ### Compatibilidad real de parsers
 
 El parser oficial **ZAP Scan exige XML**, no JSON. Se conserva el JSON
@@ -44,7 +48,7 @@ parser. El HTML es un resumen generado desde datos sanitizados.
 
 El reporte TP17 de Gitleaks omitía `Description`, necesario para reconocer
 el formato actual. La transformación incorpora una descripción determinista
-por regla/commit. `Secret`, `Match` y `Message` quedan `REDACTED`; no se
+por regla/commit/rango. `Secret`, `Match` y `Message` quedan `REDACTED`; no se
 publican autores, emails, texto del commit ni fragmentos de código. El
 fingerprint conserva trazabilidad por ubicación; no se usa un secreto real
 para deduplicar. Una versión futura de Dojo debe confirmar esa deduplicación.
@@ -86,6 +90,8 @@ actual. Usa PostgreSQL efímero y la imagen del build en una red Docker
 **interna, sin puertos publicados** ni salida hacia objetivos externos.
 La contraseña de esa base se genera en memoria y no se versiona ni publica.
 Heap, memoria y CPU del escáner están acotados; se limpia el entorno al salir.
+Se usa `-silent` para evitar telemetría y comprobaciones de actualización no
+solicitadas ([opción oficial ZAP](https://www.zaproxy.org/docs/desktop/cmdline/)).
 
 Esta cobertura es del backend. **No cubre frontend, TLS/Ingress ni el login de
 TP13B:** la app actual no implementa sus endpoints de autenticación/cookies.
@@ -160,9 +166,11 @@ frontend y la protección de ramas quedan pendientes.
 
 ```bash
 # Sólo si /home/alumno/tp18 no existe:
-git clone git@github.com:trepiol/tp18.git /home/alumno/tp18
+GIT_SSH_COMMAND='ssh -i /home/alumno/.ssh/fullrepo -o IdentitiesOnly=yes' \
+  git clone git@github.com:trepiol/tp18.git /home/alumno/tp18
 cd /home/alumno/tp18
 git switch main
+git config core.sshCommand 'ssh -i /home/alumno/.ssh/fullrepo -o IdentitiesOnly=yes'
 bash scripts/install-gitleaks-hook.sh
 gh workflow run cicd.yml --repo trepiol/tp18 --ref main
 

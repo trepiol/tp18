@@ -45,11 +45,17 @@ def transform(tool, data):
             if commit and not re.fullmatch(r"[0-9a-f]{40}", commit):
                 raise ValueError("Invalid commit metadata")
             safe.append({
-                "Description": f"Secret detection rule {issue['RuleID']} at commit {commit or 'uncommitted'}",
+                "Description": (
+                    f"Secret detection rule {issue['RuleID']} at commit {commit or 'uncommitted'} "
+                    f"range {issue['StartLine']}:{issue.get('StartColumn', 0)}-"
+                    f"{issue.get('EndLine', issue['StartLine'])}:{issue.get('EndColumn', 0)}"
+                ),
                 "RuleID": issue["RuleID"],
                 "File": issue["File"],
                 "StartLine": int(issue["StartLine"]),
                 "EndLine": int(issue.get("EndLine", issue["StartLine"])),
+                "StartColumn": int(issue.get("StartColumn", 0)),
+                "EndColumn": int(issue.get("EndColumn", 0)),
                 "Commit": commit,
                 "Fingerprint": issue.get("Fingerprint", ""),
                 "Secret": REDACTED,
@@ -97,6 +103,15 @@ def transform(tool, data):
         if not data.get("ArtifactName"):
             raise ValueError("Missing Trivy artifact identity")
         safe = copy.deepcopy(data)
+        # ImageConfig can contain environment values, labels and build history.
+        # Keep identity/OS metadata used by the parser, never the raw image config.
+        if "Metadata" in safe:
+            metadata = safe["Metadata"] or {}
+            safe["Metadata"] = {
+                key: metadata[key] for key in
+                ("OS", "ImageID", "DiffIDs", "RepoTags", "RepoDigests", "Size")
+                if key in metadata
+            }
         count = 0
         for result in safe.get("Results") or []:
             for field in ("Vulnerabilities", "Misconfigurations", "Secrets"):
@@ -109,6 +124,8 @@ def transform(tool, data):
                         issue["Match"] = REDACTED
                         issue.pop("Code", None)
                     if field == "Misconfigurations":
+                        issue["Message"] = REDACTED
+                        issue.pop("Traces", None)
                         cause = issue.get("CauseMetadata") or {}
                         cause.pop("Code", None)
         return safe, count
@@ -203,6 +220,8 @@ def prepare(args):
         target = destination / name
         if raw.suffix == ".json":
             safe, findings = transform(args.tool, json.loads(raw.read_text()))
+            if args.tool == "zap" and safe["@version"] != args.version:
+                raise ValueError("ZAP version does not match pinned version")
             target.write_text(json.dumps(safe, indent=2) + "\n")
             count += findings
             if args.tool == "semgrep":

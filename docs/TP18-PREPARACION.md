@@ -10,17 +10,22 @@ No se instala ni integra DefectDojo en esta fase.
 | Independencia Git | Nuevo clon con historial; main; fuente TP17 limpia y sin cambios |
 | Gitleaks 8.30.0 | Historial completo: 0 no exceptuados; configuración original y dos excepciones intactas |
 | Gitleaks negativo | Reproducción temporal del archivo histórico TP09: CLI código 1, un finding; JSON sanitizado aceptado por el parser oficial como un finding |
-| Pruebas de reportes | 9 tests: redacción, campos del parser, formatos inválidos, warnings y bundles ausentes |
+| Pruebas de reportes | 11 tests: redacción, campos del parser, formatos inválidos, warnings y bundles ausentes |
 | App integrada | 7 tests pasan en Python 3.12; cobertura total 90 %, app.py 85 % |
 | Helm | Lint pasa; YAML de producción válido, reproducible e igual al heredado |
-| Threagile | risks.json real: 42 riesgos; PDF y dos diagramas; parser devuelve 42 |
-| Semgrep | 20 findings reales; JSON/SARIF sanitizados; parser devuelve 20; guard ERROR pasa |
+| Threagile | risks.json real: 42 riesgos; PDF y dos diagramas; parser devuelve 42; job CI exitoso |
+| Semgrep | 20 findings reales; JSON/SARIF sanitizados; parser devuelve 20; guard ERROR y job CI pasan |
+| ZAP 2.17.0 | Ejecución local real: 5 alertas, JSON/XML/HTML sanitizados; parser XML devuelve 5 |
+| Trivy HIGH/CRITICAL | CI: 61 findings (SCA 3, imagen 47, IaC 11, secretos 0); Andon rojo y artifact publicado |
+| Trivy LOW/MEDIUM | CI: 178 findings (SCA 6, imagen 130, IaC 42, secretos 0); auditoría exitosa |
 | Workflows | actionlint 1.7.12; YAML y Bash válidos; dependencias y condiciones comprobadas |
 | Preservación | App, requirements, chart, perfil de producción y allowlist sin cambios |
 
-Los resultados de ZAP, Trivy y GitHub Actions se incorporan a la sección de
-evidencias al completar sus ejecuciones; no se declaran probados sólo porque
-su configuración existe.
+Los conteos reflejan las ejecuciones de referencia documentadas abajo y pueden
+cambiar con nuevas bases de vulnerabilidades, reglas o imágenes base. El índice
+de cada run valida los seis bundles del mismo SHA y no sustituye un reporte
+inexistente con datos vacíos. El estado definitivo de cada ejecución se consulta
+en su índice y jobs, incluso cuando el workflow global queda rojo por un gate.
 
 ## Problemas encontrados y soluciones
 
@@ -38,6 +43,10 @@ su configuración existe.
   operativo, no un scan sin hallazgos; no se produjo un reporte vacío.
 - La VM perdió conectividad durante auditorías anteriores. Tras recuperarla,
   se ejecutan los escáneres pesados de a uno y se acotan heap/CPU de ZAP.
+- PostgreSQL tardaba en sincronizar su directorio durante el arranque local:
+  la base efímera DAST usa tmpfs de 512 MiB; producción no cambia.
+- ZAP intentaba telemetría/actualizaciones sin salida de red: se agrega
+  -silent, sin desactivar spiders, análisis pasivo o activo.
 
 ## Alcance de compatibilidad
 
@@ -66,4 +75,35 @@ No hubo importaciones simuladas ni servicios expuestos.
 
 ## Evidencias de ejecución
 
-Pendiente de completar con los runs reales, SHA y artifacts verificables.
+Primera ejecución real: [38505408582](https://github.com/trepiol/tp18/actions/runs/38505408582),
+SHA **bf96876f0344c95a19b7970d08ec125bcb605207**.
+Se descargaron y validaron con parsers oficiales los bundles Gitleaks,
+Semgrep, Threagile y ambos Trivy de esa ejecución. El guard Trivy falla por
+findings y conserva su artifact; el lint TP06 también falla como antecedente
+independiente. ZAP quedó demorado en la configuración anterior a -silent;
+su resultado no se declara exitoso por anticipado.
+
+La versión final incorpora -silent y versión ZAP comprobada, más sanitización
+de ImageConfig/mensajes Trivy y rangos Gitleaks. Conserva IDs, paquetes,
+severidades y conteos: se compararon 61 HIGH/CRITICAL y 178 LOW/MEDIUM sin
+cambios. El parser Gitleaks conserva dos findings redactados en una misma
+línea cuando sus rangos difieren.
+
+[Ejecuciones del workflow final](https://github.com/trepiol/tp18/actions/workflows/cicd.yml?query=branch%3Amain).
+La evidencia de cualquier ejecución posterior queda en sus artifacts y en
+collection-index.json, con SHA/run explícitos. Para descargar y comprobar el
+último run de main, desde el clon limpio actualizado:
+
+~~~bash
+tp18_run_id=$(gh run list --workflow cicd.yml --branch main --limit 1 \
+  --json databaseId --jq '.[0].databaseId')
+gh run download "$tp18_run_id" --pattern 'tp18-*' \
+  --dir ".security-bundles/run-$tp18_run_id"
+GITHUB_SHA="$(git rev-parse HEAD)" GITHUB_RUN_ID="$tp18_run_id" \
+  python3 scripts/security_report.py collect \
+  ".security-bundles/run-$tp18_run_id" .security-collection
+~~~
+
+El colector termina en cero sólo con seis bundles válidos del SHA/run pedidos.
+Ese cero valida evidencias, no convierte el Andon rojo en verde. La plataforma
+DefectDojo sigue pendiente aunque la recopilación pase.
