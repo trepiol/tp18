@@ -10,7 +10,7 @@ backend="tp18-backend-$suffix"
 scanner="tp18-zap-$suffix"
 private="$PWD/.security-private/zap"
 mkdir -p "$private" .security-reports/diagnostics
-chmod 700 "$private"
+chmod 770 "$private"
 rm -f "$private/scan.log" "$private/zap-report.json" .security-reports/zap/manifest.json
 started_at=$SECONDS
 phase=setup
@@ -21,7 +21,13 @@ import json,os,sys
 from pathlib import Path
 log_path=Path(sys.argv[3])
 log=log_path.read_text(errors="replace") if log_path.exists() else ""
+preflight_path=log_path.parent/"preflight.log"
+try:
+    startup_checks=json.loads(preflight_path.read_text())
+except (OSError,ValueError):
+    startup_checks=None
 diagnostic={
+    "startup_checks":startup_checks,
     "tool":"zap", "sha":os.environ.get("GITHUB_SHA"),
     "run_id":os.environ.get("GITHUB_RUN_ID"),
     "exit_code":int(sys.argv[1]), "elapsed_seconds":int(sys.argv[2]),
@@ -40,12 +46,13 @@ diagnostic={
         "permission_errors":log.count("Permission denied"),
         "memory_errors":log.count("OutOfMemoryError"),
     },
+    "scanner_user":"zap (UID 1000)",
     "raw_logs_published":False,
 }
 Path(".security-reports/diagnostics/zap.json").write_text(json.dumps(diagnostic,indent=2)+"\n")
 PY
-  docker logs "$backend" >"$private/backend.log" 2>&1 || :
-  docker logs "$db" >"$private/postgres.log" 2>&1 || :
+  timeout --kill-after=3 10 docker logs --tail 100 "$backend" >"$private/backend.log" 2>&1 || :
+  timeout --kill-after=3 10 docker logs --tail 100 "$db" >"$private/postgres.log" 2>&1 || :
   timeout --kill-after=3 15 docker rm -f "$scanner" "$backend" "$db" >/dev/null 2>&1 || :
   timeout --kill-after=3 15 docker network rm "$network" >/dev/null 2>&1 || :
 }
@@ -83,19 +90,19 @@ assert ipaddress.ip_address(sys.argv[1]).is_private
 PY
 # Bypass DNS search-path differences on the hosted runner.
 timeout 30 docker run --rm --network "$network" --add-host "backend:$backend_ip" \
-  --memory 256m --entrypoint python3 "$zap_image" -c \
-  'import json,urllib.request; d=json.load(urllib.request.urlopen("http://backend:5000/health",timeout=10)); assert d["db"]=="connected"' \
+  --memory 256m --user "1000:$(id -g)" -v "$private:/zap/wrk/reports" \
+  --entrypoint python3 "$zap_image" -c \
+  'import json,os,urllib.request; d=json.load(urllib.request.urlopen("http://backend:5000/health",timeout=10)); checks={p:os.access(p,os.W_OK) for p in ("/zap","/home/zap","/zap/wrk/reports")}; print(json.dumps({"backend_connected":d["db"]=="connected","uid":os.getuid(),"writable":checks})); assert d["db"]=="connected" and all(checks.values())' \
   >"$private/preflight.log" 2>&1
 echo "ZAP: backend accesible desde la imagen del escáner; iniciando Automation Framework."
 # Inspect native container state instead of waiting on the attached Docker client.
 phase=automation
 docker run --detach --name "$scanner" --network "$network" \
   --add-host "backend:$backend_ip" --memory 3g --cpus 2 \
-  --user "$(id -u):$(id -g)" -e JAVA_TOOL_OPTIONS=-Duser.home=/zap/wrk/reports \
+  --user "1000:$(id -g)" -e JAVA_TOOL_OPTIONS=-Duser.home=/zap/wrk/reports \
   -v "$PWD/security/zap/zap.yaml:/zap/wrk/plan.yaml:ro" \
   -v "$private:/zap/wrk/reports" "$zap_image" \
-  zap.sh -Xmx1536m -dir /zap/wrk/reports/.zap -cmd -silent -port 8091 \
-  -autorun /zap/wrk/plan.yaml >/dev/null
+  bash -c 'umask 0007; exec zap.sh -Xmx1536m -dir /zap/wrk/reports/.zap -cmd -silent -port 8091 -autorun /zap/wrk/plan.yaml' >/dev/null
 deadline=$((SECONDS + 720))
 status=124
 while (( SECONDS < deadline )); do

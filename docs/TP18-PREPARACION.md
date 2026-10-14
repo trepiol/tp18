@@ -58,6 +58,11 @@ duración y publicar sólo diagnóstico seguro. Un plan realmente finalizado y
 su reporte válido pueden conservarse aunque falle el cierre del proceso;
 ese fallo continúa visible en el manifest y el job y bloquea deploy.
 
+El diagnóstico siguiente no registró jobs del plan ni JSON. Por eso se
+conserva el usuario estándar de la imagen ZAP (UID 1000), se valida escritura
+en /zap, /home/zap y el volumen privado, y se comparte sólo el grupo del
+runner. Los logs privados de aplicación se acotan y su lectura tiene timeout.
+
 ## Alcance de compatibilidad
 
 Lectores oficiales fijados en

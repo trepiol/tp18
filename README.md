@@ -94,7 +94,8 @@ La contraseña de esa base se genera en memoria y no se versiona ni publica.
 Heap, memoria y CPU del escáner están acotados; se limpia el entorno al salir.
 Se verifica la ruta al backend desde la propia imagen del escáner y se fija
 su resolución dentro de la red privada. Java usa un home escribible también
-para el UID 1001 del runner. Un timeout de proceso preserva diagnóstico y
+para el runner. Se conserva el usuario zap (UID 1000) de la imagen y se
+comparte únicamente el grupo del directorio privado de reportes. Un timeout de proceso preserva diagnóstico y
 limpieza sin convertir un fallo en éxito.
 Se usa `-silent` para evitar telemetría y comprobaciones de actualización no
 solicitadas ([opción oficial ZAP](https://www.zaproxy.org/docs/desktop/cmdline/)).
