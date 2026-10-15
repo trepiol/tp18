@@ -415,7 +415,7 @@ jobs:
           if-no-files-found: error
 
   collect-security-reports:
-    name: Fase 3 preparada — Recopilar evidencias sin DefectDojo
+    name: Fase 3 — Validar bundles de auditoría
     runs-on: ubuntu-24.04
     needs:
       - build-and-package
@@ -449,6 +449,70 @@ jobs:
           retention-days: 14
           if-no-files-found: error
 
+  test-security-reports:
+    name: Tests de transformación y recopilación de reportes
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 -m unittest discover -s scripts/tests -v
+
+  defectdojo-import:
+    name: Fase 3 — Importar y reimportar en DefectDojo
+    needs: [collect-security-reports, test-security-reports]
+    # Self-hosted importer is allowed only for trusted owner-controlled refs.
+    # External PR workflows require explicit approval; keep the runner ephemeral.
+    if: >-
+      ${{ always() && needs.collect-security-reports.result == 'success' &&
+          needs.test-security-reports.result == 'success' &&
+          github.repository == 'trepiol/tp18' && github.event_name != 'pull_request' &&
+          (github.ref == 'refs/heads/main' ||
+           github.ref == 'refs/heads/feature/tp18-defectdojo-final') }}
+    runs-on: [self-hosted, linux, x64, tp18-defectdojo]
+    environment: tp18-defectdojo
+    timeout-minutes: 20
+    concurrency:
+      group: tp18-defectdojo-import
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      actions: read
+    env:
+      DEFECTDOJO_URL: http://127.0.0.1:8080
+      DEFECTDOJO_PRODUCT_TYPE_ID: ${{ vars.TP18_PRODUCT_TYPE_ID }}
+      DEFECTDOJO_API_KEY: ${{ secrets.DEFECTDOJO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Descargar los bundles de esta ejecución y SHA
+        uses: actions/download-artifact@v4
+        with:
+          pattern: tp18-*-${{ github.sha }}
+          path: .security-bundles/
+          merge-multiple: false
+      - name: Comprobar API y contexto existente
+        run: bash scripts/verificar-defectdojo.sh check
+      - name: Importación inicial o reimportación de los Tests existentes
+        run: bash scripts/verificar-defectdojo.sh sync
+      - name: Verificar deduplicación sin cambiar estados
+        run: >-
+          bash scripts/verificar-defectdojo.sh reimport
+          --output .security-collection/defectdojo-reimport
+      - name: Publicar comprobantes seguros de API
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: tp18-defectdojo-${{ github.sha }}
+          path: |
+            .security-collection/defectdojo/
+            .security-collection/defectdojo-reimport/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
+
   deploy-k8s-helm:
     name: Fase 4 — Publicación y deploy Helm
     runs-on: ubuntu-24.04
@@ -462,6 +526,8 @@ jobs:
       - zap-audit
       - threat-modeling
       - collect-security-reports
+      - test-security-reports
+      - defectdojo-import
     if: >-
       ${{ github.ref == 'refs/heads/main' &&
           needs.build-and-package.result == 'success' &&
@@ -472,7 +538,9 @@ jobs:
           needs.semgrep.result == 'success' &&
           needs.zap-audit.result == 'success' &&
           needs.threat-modeling.result == 'success' &&
-          needs.collect-security-reports.result == 'success' }}
+          needs.collect-security-reports.result == 'success' &&
+          needs.test-security-reports.result == 'success' &&
+          needs.defectdojo-import.result == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4

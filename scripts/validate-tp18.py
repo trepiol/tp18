@@ -29,10 +29,22 @@ for step in jobs["trivy-andon-cord"]["steps"]:
 for step in jobs["trivy-audit-report"]["steps"]:
     if step.get("uses", "").startswith("aquasecurity/trivy-action"):
         assert step["with"]["exit-code"] == "0"
+dojo = jobs["defectdojo-import"]
+assert dojo["needs"] == ["collect-security-reports", "test-security-reports"]
+assert "always()" in dojo["if"]
+assert "needs.collect-security-reports.result == 'success'" in dojo["if"]
+assert "github.event_name != 'pull_request'" in dojo["if"]
+assert "needs.trivy-andon-cord.result" not in dojo["if"]
+assert "needs.gitleaks-andon-cord.result" not in dojo["if"]
+assert dojo["environment"] == "tp18-defectdojo"
+assert not dojo.get("continue-on-error")
+assert all(not step.get("continue-on-error") and "|| true" not in step.get("run", "") for step in dojo["steps"])
+assert "unittest discover -s scripts/tests -v" in jobs["test-security-reports"]["steps"][-1]["run"]
 deploy = jobs["deploy-k8s-helm"]
 required = ["build-and-package", "trivy-andon-cord", "trivy-audit-report",
             "gitleaks-andon-cord", "gitleaks-audit-report", "semgrep",
-            "zap-audit", "threat-modeling", "collect-security-reports"]
+            "zap-audit", "threat-modeling", "collect-security-reports",
+            "test-security-reports", "defectdojo-import"]
 assert set(deploy["needs"]) == set(required)
 assert "github.ref == 'refs/heads/main'" in deploy["if"]
 for name in required:

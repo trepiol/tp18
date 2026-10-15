@@ -1,0 +1,11 @@
+{
+  "version": "3.4.101",
+  "source": "https://github.com/DefectDojo/django-DefectDojo/blob/3.4.101/docker-compose.yml",
+  "changes": [
+    "Prebuilt official images pinned by amd64 manifest digest",
+    "HTTP loopback only; no database or cache publication",
+    "Private required secrets and explicit admin identity",
+    "Persistent volumes, bounded logs, restart policy and laboratory memory limits",
+    "Valkey is the Redis-compatible broker shipped by this stable release"
+  ]
+}
