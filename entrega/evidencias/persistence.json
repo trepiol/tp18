@@ -1,0 +1,285 @@
+{
+  "success": true,
+  "before": {
+    "finding_ids_and_states_sha256": "fe56e2e31c5cd10c46c85a98d14103f30a84d5a7e7ea8d4416672d5a3f9962b9",
+    "risk_accepted": 3,
+    "severities": {
+      "Medium": 194,
+      "Low": 161,
+      "Info": 1,
+      "High": 113
+    },
+    "tests": 12,
+    "findings": 469,
+    "active": 469,
+    "duplicates": 0,
+    "states": {
+      "active=True;duplicate=False;mitigated=False": 469
+    },
+    "test_details": [
+      {
+        "id": 1,
+        "title": "TP18 zap DAST",
+        "findings": 5,
+        "active": 5,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 3,
+          "Low": 1,
+          "Info": 1
+        }
+      },
+      {
+        "id": 2,
+        "title": "TP18 threagile Threat Modeling",
+        "findings": 42,
+        "active": 42,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 31,
+          "Low": 3,
+          "High": 8
+        }
+      },
+      {
+        "id": 3,
+        "title": "TP18 semgrep SAST",
+        "findings": 20,
+        "active": 20,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 16,
+          "Low": 4
+        }
+      },
+      {
+        "id": 4,
+        "title": "TP18 gitleaks Git History",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 5,
+        "title": "TP18 trivy-high SCA",
+        "findings": 3,
+        "active": 3,
+        "duplicates": 0,
+        "severities": {
+          "High": 3
+        }
+      },
+      {
+        "id": 6,
+        "title": "TP18 trivy-high Container",
+        "findings": 91,
+        "active": 91,
+        "duplicates": 0,
+        "severities": {
+          "High": 91
+        }
+      },
+      {
+        "id": 7,
+        "title": "TP18 trivy-high Secrets",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 8,
+        "title": "TP18 trivy-high IaC",
+        "findings": 11,
+        "active": 11,
+        "duplicates": 0,
+        "severities": {
+          "High": 11
+        }
+      },
+      {
+        "id": 9,
+        "title": "TP18 trivy-low SCA",
+        "findings": 6,
+        "active": 6,
+        "duplicates": 0,
+        "severities": {
+          "Low": 1,
+          "Medium": 5
+        }
+      },
+      {
+        "id": 10,
+        "title": "TP18 trivy-low Container",
+        "findings": 249,
+        "active": 249,
+        "duplicates": 0,
+        "severities": {
+          "Low": 124,
+          "Medium": 125
+        }
+      },
+      {
+        "id": 11,
+        "title": "TP18 trivy-low Secrets",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 12,
+        "title": "TP18 trivy-low IaC",
+        "findings": 42,
+        "active": 42,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 14,
+          "Low": 28
+        }
+      }
+    ]
+  },
+  "after": {
+    "finding_ids_and_states_sha256": "fe56e2e31c5cd10c46c85a98d14103f30a84d5a7e7ea8d4416672d5a3f9962b9",
+    "risk_accepted": 3,
+    "severities": {
+      "Medium": 194,
+      "Low": 161,
+      "Info": 1,
+      "High": 113
+    },
+    "tests": 12,
+    "findings": 469,
+    "active": 469,
+    "duplicates": 0,
+    "states": {
+      "active=True;duplicate=False;mitigated=False": 469
+    },
+    "test_details": [
+      {
+        "id": 1,
+        "title": "TP18 zap DAST",
+        "findings": 5,
+        "active": 5,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 3,
+          "Low": 1,
+          "Info": 1
+        }
+      },
+      {
+        "id": 2,
+        "title": "TP18 threagile Threat Modeling",
+        "findings": 42,
+        "active": 42,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 31,
+          "Low": 3,
+          "High": 8
+        }
+      },
+      {
+        "id": 3,
+        "title": "TP18 semgrep SAST",
+        "findings": 20,
+        "active": 20,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 16,
+          "Low": 4
+        }
+      },
+      {
+        "id": 4,
+        "title": "TP18 gitleaks Git History",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 5,
+        "title": "TP18 trivy-high SCA",
+        "findings": 3,
+        "active": 3,
+        "duplicates": 0,
+        "severities": {
+          "High": 3
+        }
+      },
+      {
+        "id": 6,
+        "title": "TP18 trivy-high Container",
+        "findings": 91,
+        "active": 91,
+        "duplicates": 0,
+        "severities": {
+          "High": 91
+        }
+      },
+      {
+        "id": 7,
+        "title": "TP18 trivy-high Secrets",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 8,
+        "title": "TP18 trivy-high IaC",
+        "findings": 11,
+        "active": 11,
+        "duplicates": 0,
+        "severities": {
+          "High": 11
+        }
+      },
+      {
+        "id": 9,
+        "title": "TP18 trivy-low SCA",
+        "findings": 6,
+        "active": 6,
+        "duplicates": 0,
+        "severities": {
+          "Low": 1,
+          "Medium": 5
+        }
+      },
+      {
+        "id": 10,
+        "title": "TP18 trivy-low Container",
+        "findings": 249,
+        "active": 249,
+        "duplicates": 0,
+        "severities": {
+          "Low": 124,
+          "Medium": 125
+        }
+      },
+      {
+        "id": 11,
+        "title": "TP18 trivy-low Secrets",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 12,
+        "title": "TP18 trivy-low IaC",
+        "findings": 42,
+        "active": 42,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 14,
+          "Low": 28
+        }
+      }
+    ]
+  }
+}

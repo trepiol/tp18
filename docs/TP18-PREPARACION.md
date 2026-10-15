@@ -24,11 +24,32 @@ El antecedente de preparación se conserva en [documento histórico](TP18-PREPAR
 
 Los reportes iniciales pertenecen al SHA `7e39cc4986b3d8207299e4e0f8ce3300ec973ccd` y [run 38512049385](https://github.com/trepiol/tp18/actions/runs/38512049385). Los nuevos runs deben registrar sus propios conteos y procedencia.
 
-## Integración CI por ejecutar en esta revisión
+## Integración CI ejecutada y comprobada
 
 El código incorpora defectdojo-import después del colector, con always() y validación de sus prerequisitos; mantiene deploy detrás de todos los gates. Environment protegido y token configurados con autorización del usuario. El runner es JIT, aislado en contenedor y limitado a un job confiable, sin Docker socket ni credenciales del host montadas. Las 17 pruebas de scripts forman parte del CI.
 
-La prueba completa y sus conteos se registrarán después de ejecutarla. No se considera una importación CI exitosa antes de comprobarla.
+La prueba completa se ejecutó en [run 38664207927](https://github.com/trepiol/tp18/actions/runs/38664207927), commit técnico `84088cbf3125713917ff326069846c851eec4216`. El job DefectDojo pasó en 1 min 9 s. Se publicaron 10 artifacts: nueve tipos heredados más el comprobante Dojo. Los reportes y comprobantes duran 14 días; la imagen heredada 1 día.
+
+| Job o control CI | Resultado observado |
+|---|---|
+| Tests app / scripts | success, 7 y 17 pruebas respectivamente |
+| Build único | success |
+| ZAP / Threagile / Semgrep | success; 5 / 42 / 20 |
+| Gitleaks Andon / auditoría | success; 0 no exceptuados |
+| Trivy Andon | failure; HIGH/CRITICAL 61: SCA 3, imagen 47, IaC 11 |
+| Trivy LOW/MEDIUM | success; 178: SCA 6, imagen 130, IaC 42 |
+| Colector | success, 6/6 bundles |
+| DefectDojo | success, doce reportes y reimportación idéntica |
+| Lint histórico TP06 | failure independiente, conservado |
+| Release y deploy | skipped, sin publicar imagen |
+
+Cada run contiene 306 entradas de reportes, con su propia procedencia. Tras sincronizar el segundo SHA, Dojo tiene 469 Findings activos en los mismos 12 Tests. Sev.: High 113, Medium 194, Low 161, Info 1. Risk accepted 3 heredados; duplicados clasificados 0. No son vulnerabilidades únicas.
+
+El parser Trivy incorpora Target con SHA en description y en su hash de identidad. Por eso 44 entradas HIGH y 119 LOW/MEDIUM del SO se conservan como registros diferentes entre las dos versiones: 306 + 163 = 469. Los pares comparados conservan CVE/paquete/versión y sólo difieren en ese SHA dentro de la descripción. No se cambió ningún reporte ni configuración de deduplicación. La reimportación idéntica del nuevo conjunto mantuvo 469 → 469, los doce Test IDs y todos los estados. Un reinicio posterior y un negativo HTTP 400 mantuvieron el mismo snapshot/hash:
+
+`fe56e2e31c5cd10c46c85a98d14103f30a84d5a7e7ea8d4416672d5a3f9962b9`
+
+El runner JIT se eliminó al terminar; GitHub confirmó cero runners registrados. Se comprobó un clon nuevo con hook instalado, 17 tests, grafo y Gitleaks aprobados sin copiar credenciales de instancia. El informe y los comprobantes están en [entrega](../entrega/README.md).
 
 ## Límites
 

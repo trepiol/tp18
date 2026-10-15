@@ -1,0 +1,4927 @@
+{
+  "sha": "84088cbf3125713917ff326069846c851eec4216",
+  "run_id": "38664207927",
+  "run_url": "https://github.com/trepiol/tp18/actions/runs/38664207927",
+  "hierarchy": {
+    "product_type_id": 2,
+    "product_id": 1,
+    "engagement_id": 1
+  },
+  "before": {
+    "finding_ids_and_states_sha256": "e51cb3ce36da80084834607f925849af5fa4461790c948e1dbbe74a5bb8065cf",
+    "risk_accepted": 3,
+    "severities": {
+      "Medium": 136,
+      "Low": 100,
+      "Info": 1,
+      "High": 69
+    },
+    "tests": 12,
+    "findings": 306,
+    "active": 306,
+    "duplicates": 0,
+    "states": {
+      "active=True;duplicate=False;mitigated=False": 306
+    },
+    "test_details": [
+      {
+        "id": 1,
+        "title": "TP18 zap DAST",
+        "findings": 5,
+        "active": 5,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 3,
+          "Low": 1,
+          "Info": 1
+        }
+      },
+      {
+        "id": 2,
+        "title": "TP18 threagile Threat Modeling",
+        "findings": 42,
+        "active": 42,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 31,
+          "Low": 3,
+          "High": 8
+        }
+      },
+      {
+        "id": 3,
+        "title": "TP18 semgrep SAST",
+        "findings": 20,
+        "active": 20,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 16,
+          "Low": 4
+        }
+      },
+      {
+        "id": 4,
+        "title": "TP18 gitleaks Git History",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 5,
+        "title": "TP18 trivy-high SCA",
+        "findings": 3,
+        "active": 3,
+        "duplicates": 0,
+        "severities": {
+          "High": 3
+        }
+      },
+      {
+        "id": 6,
+        "title": "TP18 trivy-high Container",
+        "findings": 47,
+        "active": 47,
+        "duplicates": 0,
+        "severities": {
+          "High": 47
+        }
+      },
+      {
+        "id": 7,
+        "title": "TP18 trivy-high Secrets",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 8,
+        "title": "TP18 trivy-high IaC",
+        "findings": 11,
+        "active": 11,
+        "duplicates": 0,
+        "severities": {
+          "High": 11
+        }
+      },
+      {
+        "id": 9,
+        "title": "TP18 trivy-low SCA",
+        "findings": 6,
+        "active": 6,
+        "duplicates": 0,
+        "severities": {
+          "Low": 1,
+          "Medium": 5
+        }
+      },
+      {
+        "id": 10,
+        "title": "TP18 trivy-low Container",
+        "findings": 130,
+        "active": 130,
+        "duplicates": 0,
+        "severities": {
+          "Low": 63,
+          "Medium": 67
+        }
+      },
+      {
+        "id": 11,
+        "title": "TP18 trivy-low Secrets",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 12,
+        "title": "TP18 trivy-low IaC",
+        "findings": 42,
+        "active": 42,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 14,
+          "Low": 28
+        }
+      }
+    ]
+  },
+  "after": {
+    "finding_ids_and_states_sha256": "fe56e2e31c5cd10c46c85a98d14103f30a84d5a7e7ea8d4416672d5a3f9962b9",
+    "risk_accepted": 3,
+    "severities": {
+      "Medium": 194,
+      "Low": 161,
+      "Info": 1,
+      "High": 113
+    },
+    "tests": 12,
+    "findings": 469,
+    "active": 469,
+    "duplicates": 0,
+    "states": {
+      "active=True;duplicate=False;mitigated=False": 469
+    },
+    "test_details": [
+      {
+        "id": 1,
+        "title": "TP18 zap DAST",
+        "findings": 5,
+        "active": 5,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 3,
+          "Low": 1,
+          "Info": 1
+        }
+      },
+      {
+        "id": 2,
+        "title": "TP18 threagile Threat Modeling",
+        "findings": 42,
+        "active": 42,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 31,
+          "Low": 3,
+          "High": 8
+        }
+      },
+      {
+        "id": 3,
+        "title": "TP18 semgrep SAST",
+        "findings": 20,
+        "active": 20,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 16,
+          "Low": 4
+        }
+      },
+      {
+        "id": 4,
+        "title": "TP18 gitleaks Git History",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 5,
+        "title": "TP18 trivy-high SCA",
+        "findings": 3,
+        "active": 3,
+        "duplicates": 0,
+        "severities": {
+          "High": 3
+        }
+      },
+      {
+        "id": 6,
+        "title": "TP18 trivy-high Container",
+        "findings": 91,
+        "active": 91,
+        "duplicates": 0,
+        "severities": {
+          "High": 91
+        }
+      },
+      {
+        "id": 7,
+        "title": "TP18 trivy-high Secrets",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 8,
+        "title": "TP18 trivy-high IaC",
+        "findings": 11,
+        "active": 11,
+        "duplicates": 0,
+        "severities": {
+          "High": 11
+        }
+      },
+      {
+        "id": 9,
+        "title": "TP18 trivy-low SCA",
+        "findings": 6,
+        "active": 6,
+        "duplicates": 0,
+        "severities": {
+          "Low": 1,
+          "Medium": 5
+        }
+      },
+      {
+        "id": 10,
+        "title": "TP18 trivy-low Container",
+        "findings": 249,
+        "active": 249,
+        "duplicates": 0,
+        "severities": {
+          "Low": 124,
+          "Medium": 125
+        }
+      },
+      {
+        "id": 11,
+        "title": "TP18 trivy-low Secrets",
+        "findings": 0,
+        "active": 0,
+        "duplicates": 0,
+        "severities": {}
+      },
+      {
+        "id": 12,
+        "title": "TP18 trivy-low IaC",
+        "findings": 42,
+        "active": 42,
+        "duplicates": 0,
+        "severities": {
+          "Medium": 14,
+          "Low": 28
+        }
+      }
+    ]
+  },
+  "receipts": [
+    {
+      "title": "TP18 zap DAST",
+      "parser": "ZAP Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 1,
+      "sha256": "131b37a2ec236b0c86753477ac290f8bd2fb3eced3e65685e183e30895ab1caf",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 1,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 1
+          },
+          "low": {
+            "active": 1,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 1
+          },
+          "medium": {
+            "active": 3,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 3
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 5,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 5
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 1,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 1
+            },
+            "low": {
+              "active": 1,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 1
+            },
+            "medium": {
+              "active": 3,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 3
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 5,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 5
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 1,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 1
+          },
+          "low": {
+            "active": 1,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 1
+          },
+          "medium": {
+            "active": 3,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 3
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 5,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 5
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 threagile Threat Modeling",
+      "parser": "Threagile risks report",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 2,
+      "sha256": "3f7078d74874c2fbb662b80ed62dba3ab70df41a9b7e7826cfdc7fe31df9f571",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 3,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 1,
+            "total": 3
+          },
+          "medium": {
+            "active": 31,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 2,
+            "total": 31
+          },
+          "high": {
+            "active": 8,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 8
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 42,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 3,
+            "total": 42
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 2,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 1,
+              "total": 2
+            },
+            "medium": {
+              "active": 11,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 2,
+              "total": 11
+            },
+            "high": {
+              "active": 5,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 5
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 18,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 3,
+              "total": 18
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 3,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 1,
+            "total": 3
+          },
+          "medium": {
+            "active": 31,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 2,
+            "total": 31
+          },
+          "high": {
+            "active": 8,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 8
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 42,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 3,
+            "total": 42
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 semgrep SAST",
+      "parser": "Semgrep JSON Report",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 3,
+      "sha256": "30eb3df6092b2dd3b62738d5f3fbb7c1268b7c149f8605495d1325e457b17677",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 4,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 4
+          },
+          "medium": {
+            "active": 16,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 16
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 20,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 20
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 4,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 4
+            },
+            "medium": {
+              "active": 16,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 16
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 20,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 20
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 4,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 4
+          },
+          "medium": {
+            "active": 16,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 16
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 20,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 20
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 gitleaks Git History",
+      "parser": "Gitleaks Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 4,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 trivy-high SCA",
+      "parser": "Trivy Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 5,
+      "sha256": "5e1ffc97b046ddfbbdea1dcc8e523ba96cce4818aa4b546ebb3dfa62fd4d0281",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 3,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 3
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 3,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 3
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 3,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 3
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 3,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 3
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 3,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 3
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 3,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 3
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 trivy-high Container",
+      "parser": "Trivy Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 6,
+      "sha256": "196511d2d9758b55549712a7277f1d1acb3a95c0e62421764d066f620c278b1f",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 47,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 47
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 47,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 47
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 44,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 44
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 44,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 44
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 3,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 3
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 3,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 3
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 91,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 91
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 91,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 91
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 trivy-high Secrets",
+      "parser": "Trivy Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 7,
+      "sha256": "dfcbeb105e002c7bbbba6bd7d4c45d30821d4d8e50f7d32f94c98dd359280efd",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 trivy-high IaC",
+      "parser": "Trivy Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 8,
+      "sha256": "dbe24c77761618c5260b2e8560b32016722909c0707ed83c0cd19db5d3c7d29d",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 11,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 11
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 11,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 11
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 2,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 2
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 2,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 2
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 11,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 11
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 11,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 11
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 trivy-low SCA",
+      "parser": "Trivy Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 9,
+      "sha256": "86a043d67bd6a9e6daf3472df6d40aa40f2ea85e886bc2d100cfed3c5a7d794c",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 1,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 1
+          },
+          "medium": {
+            "active": 5,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 5
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 6,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 6
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 1,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 1
+            },
+            "medium": {
+              "active": 5,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 5
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 6,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 6
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 1,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 1
+          },
+          "medium": {
+            "active": 5,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 5
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 6,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 6
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 trivy-low Container",
+      "parser": "Trivy Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 10,
+      "sha256": "5961457e3898130d777a3b8925c5fcd90dfa156bae8d488736b487fe4c863b0f",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 63,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 63
+          },
+          "medium": {
+            "active": 67,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 67
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 130,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 130
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 61,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 61
+            },
+            "medium": {
+              "active": 58,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 58
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 119,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 119
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 2,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 2
+            },
+            "medium": {
+              "active": 9,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 9
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 11,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 11
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 124,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 124
+          },
+          "medium": {
+            "active": 125,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 125
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 249,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 249
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 trivy-low Secrets",
+      "parser": "Trivy Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 11,
+      "sha256": "f3719185aa1b664dc846aeeb433a55b0441b40dad1a7b5a7e894c4da098a9b7b",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "medium": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          }
+        }
+      },
+      "success": true
+    },
+    {
+      "title": "TP18 trivy-low IaC",
+      "parser": "Trivy Scan",
+      "operation": "reimport-scan",
+      "http_status": 201,
+      "test_id": 12,
+      "sha256": "5708452498e05b44d2a7712e1314f69b542bd4b064e16614d9fb35f9830e294a",
+      "deduplication_complete": true,
+      "statistics": {
+        "before": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 28,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 28
+          },
+          "medium": {
+            "active": 14,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 14
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 42,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 42
+          }
+        },
+        "delta": {
+          "created": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "closed": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "reactivated": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "medium": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            }
+          },
+          "untouched": {
+            "info": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "low": {
+              "active": 10,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 10
+            },
+            "medium": {
+              "active": 5,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 5
+            },
+            "high": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "critical": {
+              "active": 0,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 0
+            },
+            "total": {
+              "active": 15,
+              "verified": 0,
+              "duplicate": 0,
+              "false_p": 0,
+              "out_of_scope": 0,
+              "is_mitigated": 0,
+              "risk_accepted": 0,
+              "total": 15
+            }
+          }
+        },
+        "after": {
+          "info": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "low": {
+            "active": 28,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 28
+          },
+          "medium": {
+            "active": 14,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 14
+          },
+          "high": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "critical": {
+            "active": 0,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 0
+          },
+          "total": {
+            "active": 42,
+            "verified": 0,
+            "duplicate": 0,
+            "false_p": 0,
+            "out_of_scope": 0,
+            "is_mitigated": 0,
+            "risk_accepted": 0,
+            "total": 42
+          }
+        }
+      },
+      "success": true
+    }
+  ],
+  "success": true
+}

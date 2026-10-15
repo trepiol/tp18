@@ -1,0 +1,61 @@
+{
+  "6": {
+    "paths": {
+      "tp16-notes-backend:7e39cc4986b3d8207299e4e0f8ce3300ec973ccd (debian 13.7)": 44,
+      "usr/local/lib/python3.12/site-packages/Flask_Cors-4.0.0.dist-info/METADATA": 1,
+      "usr/local/lib/python3.12/site-packages/gunicorn-21.2.0.dist-info/METADATA": 2,
+      "tp16-notes-backend:84088cbf3125713917ff326069846c851eec4216 (debian 13.7)": 44
+    },
+    "example": [
+      {
+        "id": 71,
+        "title": "CVE-2026-76642 Bsdutils 1:2.41.5-0+deb13u1",
+        "file_path": "tp16-notes-backend:7e39cc4986b3d8207299e4e0f8ce3300ec973ccd (debian 13.7)",
+        "component_name": "bsdutils",
+        "component_version": "1:2.41.5-0+deb13u1"
+      },
+      {
+        "id": 330,
+        "title": "CVE-2026-76642 Bsdutils 1:2.41.5-0+deb13u1",
+        "file_path": "tp16-notes-backend:84088cbf3125713917ff326069846c851eec4216 (debian 13.7)",
+        "component_name": "bsdutils",
+        "component_version": "1:2.41.5-0+deb13u1"
+      }
+    ],
+    "descriptions_equal_after_sha_normalization": true
+  },
+  "10": {
+    "paths": {
+      "tp16-notes-backend:7e39cc4986b3d8207299e4e0f8ce3300ec973ccd (debian 13.7)": 119,
+      "usr/local/lib/python3.12/site-packages/flask-3.0.0.dist-info/METADATA": 1,
+      "usr/local/lib/python3.12/site-packages/Flask_Cors-4.0.0.dist-info/METADATA": 4,
+      "usr/local/lib/python3.12/site-packages/pip-25.0.1.dist-info/METADATA": 6,
+      "tp16-notes-backend:84088cbf3125713917ff326069846c851eec4216 (debian 13.7)": 119
+    },
+    "example": [
+      {
+        "id": 135,
+        "title": "CVE-2011-3374 Apt 3.0.3",
+        "file_path": "tp16-notes-backend:7e39cc4986b3d8207299e4e0f8ce3300ec973ccd (debian 13.7)",
+        "component_name": "apt",
+        "component_version": "3.0.3"
+      },
+      {
+        "id": 374,
+        "title": "CVE-2011-3374 Apt 3.0.3",
+        "file_path": "tp16-notes-backend:84088cbf3125713917ff326069846c851eec4216 (debian 13.7)",
+        "component_name": "apt",
+        "component_version": "3.0.3"
+      }
+    ],
+    "descriptions_equal_after_sha_normalization": true
+  },
+  "hash_fields": [
+    "title",
+    "severity",
+    "vulnerability_ids",
+    "cwe",
+    "description"
+  ],
+  "observed_target_in_description": true
+}

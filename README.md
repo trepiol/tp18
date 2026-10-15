@@ -2,7 +2,7 @@
 
 Repositorio independiente de **trepiol/tp18**, basado en TP17 `7072a9b` con su historial. Aplicación: Notes App de `devops-tp12`.
 
-**DefectDojo CE 3.4.101 está instalado** con Compose, volúmenes persistentes y API v2. Se probaron importación inicial, reimportación idéntica, errores operativos y persistencia. La integración CI se implementa en `feature/tp18-defectdojo-final`; la ejecución completa y sus resultados se registran en la [matriz de evidencias](docs/TP18-PREPARACION.md).
+**DefectDojo CE 3.4.101 está instalado** con Compose, volúmenes persistentes y API v2. Se probaron importación inicial, reimportación idéntica, errores operativos y persistencia. La integración CI se comprobó realmente en [run 38664207927](https://github.com/trepiol/tp18/actions/runs/38664207927), commit técnico `84088cbf3125713917ff326069846c851eec4216`: colector e importador/reimportador aprobados, Trivy bloqueante y deploy omitido. La [matriz de evidencias](docs/TP18-PREPARACION.md) distingue los resultados de cada ejecución.
 
 ## Cuatro fases
 
@@ -43,6 +43,8 @@ ZAP evalúa `/health` y `/api/notes` en el backend de TP12, con PostgreSQL efím
 
 Se obtuvieron IDs reales: Product Type **2**, Notes App **1**, Engagement **1**. La UI denomina Organization/Asset a Product Type/Product. Los artifacts de referencia del [run 38512049385](https://github.com/trepiol/tp18/actions/runs/38512049385), SHA `7e39cc4986b3d8207299e4e0f8ce3300ec973ccd`, produjeron **12 Tests y 306 Findings activos**; 3 riesgos aceptados de Threagile conservan ese estado. La reimportación idéntica mantuvo Tests, Findings e IDs/estados; duplicados 0. Los totales por ámbito pueden solaparse: no son vulnerabilidades únicas entre herramientas. Cada run nuevo debe registrar sus propios valores.
 
+El run técnico nuevo `38664207927`, SHA `84088cb…`, produjo sus propios **306 registros por reportes**: ZAP 5, Threagile 42, Semgrep 20, Trivy HIGH/CRITICAL 61, Trivy LOW/MEDIUM 178 y Gitleaks 0. Dojo acumuló **469 Findings en los mismos 12 Tests** al conservar dos Targets de imagen con distinto SHA. El parser incluye Target en description, que participa de su identidad nativa: 44 registros HIGH y 119 LOW/MEDIUM del sistema operativo reciben una identidad diferente. No se alteraron reportes ni se borraron Findings para reducir ese total. Reimportar exactamente los reportes del nuevo run mantuvo **469 → 469**, IDs y estados iguales; el reinicio también preservó ese snapshot. Duplicados clasificados por Dojo: 0; esto no prueba deduplicación semántica entre versiones. Son registros acumulados, no 469 vulnerabilidades únicas ni el resultado de un solo escaneo.
+
 La cuenta API no es staff ni superuser y sólo pertenece a Notes App, no a toda la categoría. En CE su permiso es por producto, no exclusivamente de importación. El token está cifrado en el environment protegido `tp18-defectdojo`; no se publica.
 
 El servidor escucha sólo en loopback. Acceso autorizado desde la computadora del estudiante:
@@ -82,3 +84,12 @@ El harness de parsers con stubs se conserva como validación de formato; por sep
 No se remediaron vulnerabilidades, cambiaron requirements/manifests para reducir findings ni ampliaron allowlists. Los jobs Trivy y Semgrep permanecen intactos en esta fase. Antecedentes: [preparación original](docs/TP18-PREPARACION-ANTECEDENTE.md), [procedencia](docs/PROCEDENCIA.md) y [TP15 a TP17](docs/ANTECEDENTES-TP15-TP17.md).
 
 Los respaldos contienen datos y claves privadas, quedan fuera de Git y se verifican por estructura y hashes. Se probó persistencia tras reinicio; no se restauró sobre la base en uso. Quedan como mejoras TLS directo, alta disponibilidad, restauración aislada completa y cobertura DAST adicional. No se copian Secrets de release desde repositorios anteriores ni se modifica su infraestructura.
+
+## Entrega universitaria
+
+- [Informe editable DOCX](entrega/TP18_Informe_Final.docx).
+- [Informe PDF](entrega/TP18_Informe_Final.pdf).
+- [Capturas originales y procedencia](entrega/README.md).
+- [Comprobantes sanitizados](entrega/evidencias/).
+
+Informe en primera persona de Ezequiel Cuya, siete secciones con saltos de página, doce capturas reales, comparación con la consigna y propuesta V2. El commit técnico citado es el que ejecutó el pipeline; los archivos de entrega se agregan después. La integración a main requiere autorización de cierre.

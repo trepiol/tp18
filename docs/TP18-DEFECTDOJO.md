@@ -158,3 +158,7 @@ No se restauró sobre la base en uso ni se ejecutaron reescrituras destructivas.
 - [Instalación Open Source](https://docs.defectdojo.com/get_started/open_source/installation/).
 - [Serializadores API de la release](https://github.com/DefectDojo/django-DefectDojo/blob/3.4.101/dojo/api_v2/serializers.py).
 - [Seguridad de runners GitHub](https://docs.github.com/en/actions/reference/security/secure-use).
+
+## Observación final de identidad entre versiones
+
+En CE 3.4.101, el parser Trivy incluye Target en description y ésta integra el hash nativo. Dos etiquetas de imagen con distinto commit SHA pueden generar Findings distintos para el mismo CVE/paquete/versión. La prueba real conservó 12 Tests, pero creció de 306 a 469 registros acumulados al incorporar el run 38664207927. La reimportación idéntica posterior mantuvo 469 → 469, IDs y estados. No se modificaron reportes ni hashes de identidad para bajar conteos. Evaluar una identidad estable entre versiones requiere una decisión futura con conservación de procedencia; duplicados=0 no demuestra ausencia de repetición semántica global.

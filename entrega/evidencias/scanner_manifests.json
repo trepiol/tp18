@@ -1,0 +1,182 @@
+{
+  "gitleaks": {
+    "tool": "gitleaks",
+    "version": "8.30.0",
+    "parser": "Gitleaks Scan",
+    "sha": "84088cbf3125713917ff326069846c851eec4216",
+    "run_id": "38664207927",
+    "working_tree_dirty": false,
+    "execution": "completed",
+    "findings": 0,
+    "warnings": 0,
+    "reports": [
+      {
+        "file": "gitleaks-report.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      }
+    ]
+  },
+  "threagile": {
+    "tool": "threagile",
+    "version": "1.0.0",
+    "parser": "Threagile risks report",
+    "sha": "84088cbf3125713917ff326069846c851eec4216",
+    "run_id": "38664207927",
+    "working_tree_dirty": false,
+    "execution": "completed",
+    "findings": 42,
+    "warnings": 0,
+    "reports": [
+      {
+        "file": "data-asset-diagram.png",
+        "sha256": "bd1eba0000b1309c1c2c59e78672198443abab1ab93f7eda518919d485f5d3a4",
+        "bytes": 216829
+      },
+      {
+        "file": "data-flow-diagram.png",
+        "sha256": "6c9fa8b5449176514ac2e70d33601ca4e2790c41829e9183bf6ce60769e53fcf",
+        "bytes": 461613
+      },
+      {
+        "file": "report.pdf",
+        "sha256": "4ac72f25e90b91cc4c52779b5e6455d8c1e8ed7db256ab33789f495c42bc13a9",
+        "bytes": 1707810
+      },
+      {
+        "file": "risks.json",
+        "sha256": "3f7078d74874c2fbb662b80ed62dba3ab70df41a9b7e7826cfdc7fe31df9f571",
+        "bytes": 30703
+      }
+    ]
+  },
+  "zap": {
+    "tool": "zap",
+    "version": "2.17.0",
+    "parser": "ZAP Scan",
+    "sha": "84088cbf3125713917ff326069846c851eec4216",
+    "run_id": "38664207927",
+    "working_tree_dirty": false,
+    "execution": "completed",
+    "findings": 5,
+    "warnings": 0,
+    "reports": [
+      {
+        "file": "zap-report.html",
+        "sha256": "21e01eb3bfc213ef961c73f94af251f83b174143e03a9d6718d3b6a75914acf2",
+        "bytes": 11608
+      },
+      {
+        "file": "zap-report.json",
+        "sha256": "6fcdd616031afaf2fd62f84e5d656c3cdb85967bcc7bd72cb87118bf32607f59",
+        "bytes": 8513
+      },
+      {
+        "file": "zap-report.xml",
+        "sha256": "131b37a2ec236b0c86753477ac290f8bd2fb3eced3e65685e183e30895ab1caf",
+        "bytes": 7466
+      }
+    ],
+    "process_exit_code": 0,
+    "analysis_plan_completed": true
+  },
+  "semgrep": {
+    "tool": "semgrep",
+    "version": "1.177.0",
+    "parser": "Semgrep JSON Report",
+    "sha": "84088cbf3125713917ff326069846c851eec4216",
+    "run_id": "38664207927",
+    "working_tree_dirty": false,
+    "execution": "completed",
+    "findings": 20,
+    "warnings": 1,
+    "reports": [
+      {
+        "file": "semgrep-results.json",
+        "sha256": "30eb3df6092b2dd3b62738d5f3fbb7c1268b7c149f8605495d1325e457b17677",
+        "bytes": 24321
+      },
+      {
+        "file": "semgrep.sarif",
+        "sha256": "c4a532ef5ea7ec73f34a86e2f61daed62548fcd7aad5e1419eaf276e02cc68b3",
+        "bytes": 7324
+      }
+    ]
+  },
+  "trivy-high": {
+    "tool": "trivy",
+    "version": "0.74.0",
+    "parser": "Trivy Scan",
+    "sha": "84088cbf3125713917ff326069846c851eec4216",
+    "run_id": "38664207927",
+    "working_tree_dirty": false,
+    "execution": "completed",
+    "findings": 61,
+    "warnings": 0,
+    "reports": [
+      {
+        "file": "manifests-rendered-prod.yaml",
+        "sha256": "c8da99ba4aed07d4fab5861e22eae2bb268219acbe2d095d395a80aa11eda232",
+        "bytes": 9988
+      },
+      {
+        "file": "trivy-config-blocking.json",
+        "sha256": "dbe24c77761618c5260b2e8560b32016722909c0707ed83c0cd19db5d3c7d29d",
+        "bytes": 14524
+      },
+      {
+        "file": "trivy-fs-blocking.json",
+        "sha256": "5e1ffc97b046ddfbbdea1dcc8e523ba96cce4818aa4b546ebb3dfa62fd4d0281",
+        "bytes": 12270
+      },
+      {
+        "file": "trivy-image-blocking.json",
+        "sha256": "196511d2d9758b55549712a7277f1d1acb3a95c0e62421764d066f620c278b1f",
+        "bytes": 486231
+      },
+      {
+        "file": "trivy-secrets-blocking.json",
+        "sha256": "dfcbeb105e002c7bbbba6bd7d4c45d30821d4d8e50f7d32f94c98dd359280efd",
+        "bytes": 2215
+      }
+    ]
+  },
+  "trivy-low": {
+    "tool": "trivy",
+    "version": "0.74.0",
+    "parser": "Trivy Scan",
+    "sha": "84088cbf3125713917ff326069846c851eec4216",
+    "run_id": "38664207927",
+    "working_tree_dirty": false,
+    "execution": "completed",
+    "findings": 178,
+    "warnings": 0,
+    "reports": [
+      {
+        "file": "manifests-rendered-prod.yaml",
+        "sha256": "c8da99ba4aed07d4fab5861e22eae2bb268219acbe2d095d395a80aa11eda232",
+        "bytes": 9988
+      },
+      {
+        "file": "trivy-config-report.json",
+        "sha256": "5708452498e05b44d2a7712e1314f69b542bd4b064e16614d9fb35f9830e294a",
+        "bytes": 44027
+      },
+      {
+        "file": "trivy-fs-report.json",
+        "sha256": "86a043d67bd6a9e6daf3472df6d40aa40f2ea85e886bc2d100cfed3c5a7d794c",
+        "bytes": 20173
+      },
+      {
+        "file": "trivy-image-report.json",
+        "sha256": "5961457e3898130d777a3b8925c5fcd90dfa156bae8d488736b487fe4c863b0f",
+        "bytes": 737991
+      },
+      {
+        "file": "trivy-secrets-report.json",
+        "sha256": "f3719185aa1b664dc846aeeb433a55b0441b40dad1a7b5a7e894c4da098a9b7b",
+        "bytes": 2215
+      }
+    ]
+  }
+}

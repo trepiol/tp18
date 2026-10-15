@@ -1,0 +1,30 @@
+$ bash scripts/install-gitleaks-hook.sh
+Hook pre-commit TP18 instalado; analiza sólo el índice staged.
+
+$ python3 scripts/validate-tp18.py
+TP18 graph, independent audits, blocking gates, application and deploy controls: OK
+
+$ python3 -m unittest discover -s scripts/tests
+Collection: 6/6 bundles; missing/invalid=0
+Collection: 5/6 bundles; missing/invalid=1
+Collection: 5/6 bundles; missing/invalid=1
+Collection: 5/6 bundles; missing/invalid=1
+Collection: 0/6 bundles; missing/invalid=6
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 0.007s
+
+OK
+
+$ bash scripts/verificar-gitleaks.sh
+[OK] Gitleaks 8.30.0 instalado.
+[OK] Configuración TOML, reglas por defecto, workflow YAML y ambos jobs.
+[OK] Hook local presente, ejecutable y con sintaxis Bash válida.
+[OK] Clon completo; se analizarán todos los refs locales (--all).
+[INFO] Analizando el historial Git completo con redacción del 100%.
+[OK] Historial: 0 hallazgos no exceptuados.
+[RESUMEN] Todas las verificaciones completadas correctamente.
+
+$ git diff --check
+
+Fresh GitHub clone verified: full history, correct branch, installable hook, graph, 17 tests, Gitleaks 0, clean tree, no private credentials.

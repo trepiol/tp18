@@ -1,0 +1,145 @@
+TP18 graph, independent audits, blocking gates, application and deploy controls: OK
+YAML OK: .github/workflows/cicd.yml
+YAML OK: .github/workflows/semgrep.yml
+YAML OK: .github/workflows/pr-check.yml
+YAML OK: infra/defectdojo/compose.yml
+YAML OK: .github/actionlint.yaml
+Bash syntax OK
+test_context_mismatch_is_fatal (test_defectdojo_api.ApiTests.test_context_mismatch_is_fatal) ... ok
+test_http_error_is_fatal_without_echoing_body (test_defectdojo_api.ApiTests.test_http_error_is_fatal_without_echoing_body) ... ok
+test_network_error_is_fatal_without_echoing_reason (test_defectdojo_api.ApiTests.test_network_error_is_fatal_without_echoing_reason) ... ok
+test_plain_http_to_non_loopback_is_rejected (test_defectdojo_api.ApiTests.test_plain_http_to_non_loopback_is_rejected) ... ok
+test_product_scoped_context_uses_observed_type_id (test_defectdojo_api.ApiTests.test_product_scoped_context_uses_observed_type_id) ... ok
+test_redirect_does_not_forward_authorization (test_defectdojo_api.ApiTests.test_redirect_does_not_forward_authorization) ... ok
+test_collector_accepts_complete_run_and_rejects_hash_sha_and_run (test_security_report.ReportTests.test_collector_accepts_complete_run_and_rejects_hash_sha_and_run) ... ok
+test_gitleaks_distinguishes_two_redacted_ranges_on_same_line (test_security_report.ReportTests.test_gitleaks_distinguishes_two_redacted_ranges_on_same_line) ... ok
+test_gitleaks_parser_fields_and_redaction (test_security_report.ReportTests.test_gitleaks_parser_fields_and_redaction) ... ok
+test_gitleaks_rejects_null_and_missing_locations (test_security_report.ReportTests.test_gitleaks_rejects_null_and_missing_locations) ... ok
+test_missing_collection_fails_and_lists_missing_bundles (test_security_report.ReportTests.test_missing_collection_fails_and_lists_missing_bundles) ... ok
+test_prepare_rejects_unexpected_zap_version (test_security_report.ReportTests.test_prepare_rejects_unexpected_zap_version) ... ok
+test_semgrep_does_not_hide_operational_errors (test_security_report.ReportTests.test_semgrep_does_not_hide_operational_errors) ... ok
+test_semgrep_partial_warning_is_preserved (test_security_report.ReportTests.test_semgrep_partial_warning_is_preserved) ... ok
+test_threagile_rejects_unrelated_json (test_security_report.ReportTests.test_threagile_rejects_unrelated_json) ... ok
+test_trivy_preserves_counts_and_redacts_context (test_security_report.ReportTests.test_trivy_preserves_counts_and_redacts_context) ... ok
+test_zap_json_and_xml_exclude_evidence_and_url_credentials (test_security_report.ReportTests.test_zap_json_and_xml_exclude_evidence_and_url_credentials) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.009s
+
+OK
+Collection: 6/6 bundles; missing/invalid=0
+Collection: 5/6 bundles; missing/invalid=1
+Collection: 5/6 bundles; missing/invalid=1
+Collection: 5/6 bundles; missing/invalid=1
+Collection: 0/6 bundles; missing/invalid=6
+==> Linting devops-tp12/chart
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+Helm render identical to inherited manifest: OK
+[
+  {
+    "tool": "gitleaks",
+    "file": "gitleaks-report.json",
+    "parser": [
+      "Gitleaks Scan"
+    ],
+    "parsed_findings": 0
+  },
+  {
+    "tool": "semgrep",
+    "file": "semgrep-results.json",
+    "parser": [
+      "Semgrep JSON Report"
+    ],
+    "parsed_findings": 20
+  },
+  {
+    "tool": "threagile",
+    "file": "risks.json",
+    "parser": [
+      "Threagile risks report"
+    ],
+    "parsed_findings": 42
+  },
+  {
+    "tool": "trivy",
+    "file": "trivy-config-blocking.json",
+    "parser": [
+      "Trivy Scan"
+    ],
+    "parsed_findings": 11
+  },
+  {
+    "tool": "trivy",
+    "file": "trivy-fs-blocking.json",
+    "parser": [
+      "Trivy Scan"
+    ],
+    "parsed_findings": 3
+  },
+  {
+    "tool": "trivy",
+    "file": "trivy-image-blocking.json",
+    "parser": [
+      "Trivy Scan"
+    ],
+    "parsed_findings": 47
+  },
+  {
+    "tool": "trivy",
+    "file": "trivy-secrets-blocking.json",
+    "parser": [
+      "Trivy Scan"
+    ],
+    "parsed_findings": 0
+  },
+  {
+    "tool": "trivy",
+    "file": "trivy-config-report.json",
+    "parser": [
+      "Trivy Scan"
+    ],
+    "parsed_findings": 42
+  },
+  {
+    "tool": "trivy",
+    "file": "trivy-fs-report.json",
+    "parser": [
+      "Trivy Scan"
+    ],
+    "parsed_findings": 6
+  },
+  {
+    "tool": "trivy",
+    "file": "trivy-image-report.json",
+    "parser": [
+      "Trivy Scan"
+    ],
+    "parsed_findings": 130
+  },
+  {
+    "tool": "trivy",
+    "file": "trivy-secrets-report.json",
+    "parser": [
+      "Trivy Scan"
+    ],
+    "parsed_findings": 0
+  },
+  {
+    "tool": "zap",
+    "file": "zap-report.xml",
+    "parser": [
+      "ZAP Scan"
+    ],
+    "parsed_findings": 5
+  }
+]
+[OK] Gitleaks 8.30.0 instalado.
+[OK] Configuración TOML, reglas por defecto, workflow YAML y ambos jobs.
+[OK] Hook local presente, ejecutable y con sintaxis Bash válida.
+[OK] Clon completo; se analizarán todos los refs locales (--all).
+[INFO] Analizando el historial Git completo con redacción del 100%.
+[OK] Historial: 0 hallazgos no exceptuados.
+[RESUMEN] Todas las verificaciones completadas correctamente.
+git diff --check: OK

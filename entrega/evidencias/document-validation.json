@@ -1,0 +1,21 @@
+{
+  "pages": 19,
+  "section_start_pages": [
+    3,
+    5,
+    12,
+    14,
+    16,
+    17,
+    18
+  ],
+  "sections": 7,
+  "authentic_figures": 12,
+  "captions": 12,
+  "editable_docx": true,
+  "toc_links": 7,
+  "pdf_links": 18,
+  "image_bytes_preserved": true,
+  "horizontal_clipping": false,
+  "review": "All pages rendered and visually reviewed; corrected blank captures with new authentic terminal captures."
+}

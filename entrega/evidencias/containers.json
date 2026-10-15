@@ -1,0 +1,65 @@
+[
+  {
+    "service": "nginx",
+    "image": "docker.io/defectdojo/defectdojo-nginx:3.4.101@sha256:493a177f98e48bd10f10fcf021de71c755329f346568a88b303f71fc3ddc082c",
+    "image_id": "sha256:493a177f98e48bd10f10fcf021de71c755329f346568a88b303f71fc3ddc082c",
+    "status": "running",
+    "exit_code": 0,
+    "health": null,
+    "oom_killed": false
+  },
+  {
+    "service": "uwsgi",
+    "image": "docker.io/defectdojo/defectdojo-django:3.4.101@sha256:82782841f0298bdafd4bb7f07eaf4cb88ccab60c33d0bb85321e5e3dd0c622b5",
+    "image_id": "sha256:82782841f0298bdafd4bb7f07eaf4cb88ccab60c33d0bb85321e5e3dd0c622b5",
+    "status": "running",
+    "exit_code": 0,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  {
+    "service": "celerybeat",
+    "image": "docker.io/defectdojo/defectdojo-django:3.4.101@sha256:82782841f0298bdafd4bb7f07eaf4cb88ccab60c33d0bb85321e5e3dd0c622b5",
+    "image_id": "sha256:82782841f0298bdafd4bb7f07eaf4cb88ccab60c33d0bb85321e5e3dd0c622b5",
+    "status": "running",
+    "exit_code": 0,
+    "health": null,
+    "oom_killed": false
+  },
+  {
+    "service": "celeryworker",
+    "image": "docker.io/defectdojo/defectdojo-django:3.4.101@sha256:82782841f0298bdafd4bb7f07eaf4cb88ccab60c33d0bb85321e5e3dd0c622b5",
+    "image_id": "sha256:82782841f0298bdafd4bb7f07eaf4cb88ccab60c33d0bb85321e5e3dd0c622b5",
+    "status": "running",
+    "exit_code": 0,
+    "health": null,
+    "oom_killed": false
+  },
+  {
+    "service": "initializer",
+    "image": "docker.io/defectdojo/defectdojo-django:3.4.101@sha256:82782841f0298bdafd4bb7f07eaf4cb88ccab60c33d0bb85321e5e3dd0c622b5",
+    "image_id": "sha256:82782841f0298bdafd4bb7f07eaf4cb88ccab60c33d0bb85321e5e3dd0c622b5",
+    "status": "exited",
+    "exit_code": 0,
+    "health": null,
+    "oom_killed": false
+  },
+  {
+    "service": "postgres",
+    "image": "postgres:18.6-alpine@sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873",
+    "image_id": "sha256:77f585114c32fbca283dc835b0596f4e52b51b4c6662d7810b2f4084f60a1873",
+    "status": "running",
+    "exit_code": 0,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  {
+    "service": "valkey",
+    "image": "valkey/valkey:9.1.2-alpine@sha256:48332870af354a799964c0012ae1194a0bf2bf894eb508f945810596dc2d8d11",
+    "image_id": "sha256:48332870af354a799964c0012ae1194a0bf2bf894eb508f945810596dc2d8d11",
+    "status": "running",
+    "exit_code": 0,
+    "health": "healthy",
+    "oom_killed": false
+  }
+]
